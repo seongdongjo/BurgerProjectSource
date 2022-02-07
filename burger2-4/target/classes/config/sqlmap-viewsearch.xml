@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.model.ViewSearchDAO">
+ 	<select id="viewsearch" resultType="hashmap" parameterType="hashmap">
+ 		select * from ${ type }_viewfinal
+ 		<if test="search != null">
+ 			where ${ type }_name like '%'||#{search}||'%'
+ 		</if>		
+ 	</select>
+</mapper>

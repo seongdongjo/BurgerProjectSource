@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+		"-//mybatis.org//DTD Config 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+		
+<configuration>
+	<settings>
+		<!-- 캐쉬 활성화 X, 자동키 X, user_name -> userName : 맵핑때문에 언더바를 카멜케이스로 변경한다  -->
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="useGeneratedKeys" value="false"/>
+		<setting name="mapUnderscoreToCamelCase" value="false"/>
+	</settings>
+	
+<!-- 	<typeAliases> -->
+<!-- 		<typeAlias type="com.itbank.member.MemberDTO" alias="member"/> -->
+<!-- 	</typeAliases> -->
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.member.MemberDAO">
+	<insert id="join" parameterType="com.itbank.member.MemberDTO">
+		insert into user_table values (
+		user_seq.nextval,
+		#{ userid },
+		#{ userpw },
+		#{ username },
+		#{ gender },
+		#{ phone },
+		#{ email },
+		#{ usergrade },
+		#{ address },
+		#{ emailAuth },
+		'n'
+		)
+	</insert>
+ 	
+</mapper>

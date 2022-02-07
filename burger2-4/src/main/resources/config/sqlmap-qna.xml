@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.model.QnaBoardDAO">
+	<insert id="qnaInsert" parameterType="com.itbank.model.QnaBoardDTO">
+		insert into qnaboard_table(writer, title, phone, email, qnaType, ipAddress, content) 
+    		values(#{ writer }, #{ title }, #{ phone }, #{ email }, #{ qnaType }, #{ ipAddress }, #{ content })
+	</insert>
+	
+	<select id="qnaList2" parameterType="hashmap" resultType="hashmap">
+		select * from qnaboard_table 
+			where flag = 'n'
+			<if test=" result != null">
+				and result like '%'||#{ result }||'%'  
+			</if>
+			order by regDate desc 
+			offset ${ offset } rows 
+			fetch first 10 rows only
+	</select>
+	
+	<select id="qnaCount" resultType="int" parameterType="string">
+		select count(*) count from qnaboard_table 
+		<if test="result != null">
+			where result like '%'||#{ result }||'%'
+		</if>
+	</select>
+	
+	<select id="userCount" resultType="int" parameterType="string">
+		select count(*) count from qnaboard_table 
+		<if test="writer != null">
+			where writer like '%'||#{ writer }||'%'
+		</if>
+		
+	</select>
+	
+	<select id="userQnaList" parameterType="hashmap" resultType="com.itbank.model.QnaBoardDTO">
+		select * from qnaboard_table 
+			<if test="writer != null">
+				where writer = #{ writer } 
+			</if>
+			order by regDate desc 
+			offset ${ offset } rows 
+			fetch first 10 rows only
+	</select>
+</mapper>

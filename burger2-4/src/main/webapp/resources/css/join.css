@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+.join-address-container {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 01-26 padding 추가 */
+.join-address-ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	width: 800px;
+	margin: 10px;
+	padding: 0px;
+}
+
+.join-address-ul li {
+	width: 200px;
+	margin: 40px;
+	height: 60px;
+	font-size : 17px;
+	line-height : 60px;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 30px;
+	color: white;
+	box-shadow: 2px 2px 2px grey;
+}
+
+#detailAddressInput{
+	width: 480px;
+	height: 35px;
+	border: 0px;
+	font-size : 18px;
+}
+#addressInput {
+	width: 480px;
+	height: 35px;
+	border: 0px;
+	font-size : 18px;
+}
+
+/* #addressBtn { */
+/* 	width: 75px; */
+/* 	height: 35px; */
+/* 	border: 0px; */
+/* 	background-color: #db0007; */
+/* 	font-size: 15px; */
+/* 	font-weight: bold; */
+/* 	color: white; */
+/* 	border-radius: 15px; */
+/* } */
+
+#addressSubmit {
+	width: 80px;
+	height: 50px;
+	border: 0px;
+	background-color: #bd0017;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+	margin-left : 400px;
+}
+
+.join-address-form {
+	margin-top: 35px;
+}
+
+.join-address-form * {
+	margin: 15px;
+}
+
+/* step2 */
+
+.required-inputs1{
+	margin-bottom: 20px;
+}
+
+.required-inputs{
+	margin-left : -220px;
+	margin-bottom: 30px;
+}
+.required-input{
+	color: #ffbc0d;
+}
+
+.join-main-form{
+	width : 500px;
+	margin : auto;
+}
+
+.join-main-form > input {
+    width: 200px;
+    height: 25px;
+    border: 1px solid #dadada;
+}
+
+.join-main-container {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.join-main-ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	width: 800px;
+	margin: 10px;
+}
+
+.join-main-ul li {
+	width: 200px;
+	margin: 40px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	border-radius: 30px;
+	color: white;
+	box-shadow: 2px 2px 2px grey;
+}
+
+
+
+#idChkBtn{
+	width: 75px;
+	height: 35px;
+	border: 0px;
+	background-color: #ffc836;
+	font-size: 14px;
+	color: white;
+	border-radius: 5px;
+}
+
+#phoneChkBtn {
+	width: 75px;
+	height: 35px;
+	border: 0px;
+	background-color: #ffc836;
+	font-size: 14px;
+	color: white;
+	border-radius: 5px;
+}
+
+#mainBtn {
+	width: 100px;
+	height: 35px;
+	border: 0px;
+	background-color: #ffc836;
+	font-size: 14px;
+	color: white;
+	border-radius: 5px;
+}
+
+#mainSubmit {
+	width: 80px;
+	height: 40px;
+	border: 0px;
+	background-color: #ffc836;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+}
+
+.join-main-form * {
+	margin: 6px;
+}
+
+#authChkBtn {
+	width: 75px;
+	height: 35px;
+	border: 0px;
+	background-color: #ffc836;
+	font-size: 14px;
+	color: white;
+	border-radius: 5px;
+}
+.transform-big {
+	transform: scale( 1.15 );
+	transition-duration: 1s;
+}
+
+.transform-small {
+	transform: scale( 0.9 );
+	transition-duration: 1s;
+}

@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+.sizeselect input[type="checkbox"]:checked+label {
+	border-color: green;
+}
+
+.sizeselect input[type="checkbox"] {
+	display: none;
+}
+
+.ic {
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	border: 2px solid #000;
+	border-radius: 5px;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	transition: border-color ease 0.2s;
+	cursor: pointer;
+}
+
+.ic::before, .ic::after {
+	position: absolute;
+	height: 0;
+	width: 4px;
+	background-color: #34b93d;
+	box-sizing: border-box;
+	display: inline-block;
+	transform-origin: left top;
+	border-radius: 5px;
+	content: ' ';
+	transition: opacity ease 0.5;
+}
+
+.ic::before {
+	top: 14.4px;
+	left: 8.2px;
+	box-shadow: 0 0 0 1px transparent;
+	transform: rotate(-135deg);
+}
+
+.ic::after {
+	top: 7.4px;
+	left: 1px;
+	transform: rotate(-45deg);
+}
+
+input[id="input_check1"]:checked+.ic {
+	border-color: #34b93d;
+}
+
+input[id="input_check1"]:checked+.ic::after {
+	height: 10px;
+	animation: bottomcheck 0.2s ease 0s forwards;
+}
+
+input[id="input_check1"]:checked+.ic::before {
+	height: 24px;
+	animation: topcheck 0.4s ease 0s forwards;
+}
+
+/*요청사항 버튼*/
+.radioparent input[type="radio"]:checked+label {
+	border-color: green;
+}
+
+.radioparent input[type="radio"] {
+	display: none;
+}
+
+.icradio {
+	height: 15px;
+	width: 15px;
+	background-color: transparent;
+	border: 2px solid #000;
+	border-radius: 2px;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	transition: border-color ease 0.2s;
+	cursor: pointer;
+}
+
+.icradio::before, .icradio::after {
+	position: absolute;
+	height: 0;
+	width: 4px;
+	background-color: #34b93d;
+	box-sizing: border-box;
+	display: inline-block;
+	transform-origin: left top;
+	border-radius: 5px;
+	content: ' ';
+	transition: opacity ease 0.5;
+}
+
+.icradio::before {
+	top: 10px;
+	left: 7px;
+	box-shadow: 0 0 0 1px transparent;
+	transform: rotate(-135deg);
+}
+
+.icradio::after {
+	top: 6px;
+	left: -2px;
+	transform: rotate(-45deg);
+}
+
+input[id="input_radio2"]:checked+.icradio, input[id="input_radio1"]:checked+.icradio
+	{
+	border-color: #34b93d;
+}
+
+input[id="input_radio2"]:checked+.icradio::after, input[id="input_radio1"]:checked+.icradio::after
+	{
+	height: 10px;
+	animation: bottomcheck 0.2s ease 0s forwards;
+}
+
+input[id="input_radio2"]:checked+.icradio::before, input[id="input_radio1"]:checked+.icradio::before
+	{
+	height: 17px;
+	animation: topcheck 0.4s ease 0s forwards;
+}

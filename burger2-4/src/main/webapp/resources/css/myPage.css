@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+.myPage-container{
+	display: flex;
+	height: 800px;
+/* 	min-height: 600px; */
+/* 	width : 800px; */
+/* 	margin : auto; */
+	margin-bottom: 170px;
+}
+.myPage-list {
+	border: 1px solid white;
+	width: 10%;
+	min-width: 160px;
+	margin-right: 0px;
+	margin-left:10px;
+}
+
+/* 2022-02-01 추가 */ 
+.myPage-contents{
+	height: 630px;
+}
+
+.myPage-table {
+	border: 1px solid white;
+	margin-left: 180px;
+		width: 900px;
+	
+}
+.myPage-tableType01{
+	border: 1px solid #dadada;
+	justify-content: center;
+	text-align: center;
+	width: 1000px;
+	border-collapse: collapse;
+}
+.myPage-tableType02{
+	border: 1px solid #dadada;
+	width: 1000px;
+	border-collapse: collapse;
+}
+.myPage-tableType02 th{
+	width: 150px;	
+}
+.myPage-tableType02 td{
+	width: 300px;	
+}
+
+.myPage-tableType01 input{
+	width: 200px;
+    height: 25px;
+    border: 1px solid #dadada;
+}
+.myPage-tableType01 input[name="gender"]{
+	width : 60px;
+}
+
+.myPage-title {
+	padding-left: 15px;
+}
+.myPage-navPath {
+	padding-left: 10px;
+}
+.myPage-navPath > li {
+	display: inline-block;
+	font-weight: 500px;
+	margin-top: 10px;
+	
+}
+.myPage-navPath li:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 14px 0 10px;
+    vertical-align: middle;
+    border-radius: 100%;
+    background: #f5bd43;
+}
+.myPage-History {
+	margin-left: 180px;
+}
+.myPage-tableType01 dd:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 14px 0 10px;
+    vertical-align: middle;
+    border-radius: 100%;
+    background: #f5bd43;
+}
+.myPage-tableType01 dd{
+	margin-inline-start: 0px;
+	text-align: left;
+}
+.memberInfo-wrap{
+	margin-left: 180px;
+	height: 800px;
+
+}
+
+/* chkPw */
+.chk-pw{
+	display: flex;
+	min-height: 600px;
+}
+
+.chk-pw-form{
+	width : 500px;
+	border : 3px solid #f5bd43;
+	border-radius: 10px;
+	margin : auto;
+	margin-top : 50px;
+	margin-bottom: 80px;
+	text-align: center;
+	margin-left: 400px;
+	height: 250px;
+}
+.chk-pw-form > form > input[name="userpw"]{
+	width : 300px;
+	height: 50px;
+	border : 0;
+	border-bottom: 1px solid #dadada;
+}
+.chk-pw-form > form > input[type="submit"]{
+	border : 0;
+	width : 100px;
+	height: 50px;
+	background-color :  #ffbc0d;
+	border-radius : 30px;
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: bold;
+	color : white;
+}
+.myPage-privacy2 {
+	margin-bottom: 50px;
+	color: grey;
+}
+.address-result {
+	width: 500px;
+}
+
+#userSubmit {
+	width: 80px;
+	height: 50px;
+	border: 0px;
+	background-color: #bd0017;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+}

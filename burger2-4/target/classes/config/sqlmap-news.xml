@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+		"-//mybatis.org//DTD Mapper 3.0EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbank.model.NoticeDAO">
+	<select id="searchList" resultType="hashmap" parameterType="hashmap">
+		select * from notice_table 
+			where flag = 'bottom' and withdrawal = 'n'
+			<if test="search != null">
+				and content like '%'||#{ search }||'%' 		
+			</if>
+			order by notice_seq desc 
+			offset ${ offset } rows 
+			fetch FIRST 5 rows only
+	</select>
+	
+	<select id="searchTotal" parameterType="string" resultType="int">
+		select count(*) count from notice_table 
+			where flag = 'bottom' and withdrawal = 'n'
+			<if test="search != null">
+				and content like '%'||#{ search }||'%'
+			</if> 
+			order by notice_seq desc
+	</select>
+</mapper>

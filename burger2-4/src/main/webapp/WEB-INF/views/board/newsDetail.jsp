@@ -28,7 +28,7 @@
 </div>
 	<hr class="detail-hr">
 	<div class="detail-content">
-			<div class="detail-img"><img src="${ dto.fileName }"></div>
+			<div class="detail-img"><img src="${ dto.fileName }"></div> <!-- 리눅스파일서버로 접근 -->
 	</div>
 
 	<!-- admin로그인 시 수정 삭제 가능  -->

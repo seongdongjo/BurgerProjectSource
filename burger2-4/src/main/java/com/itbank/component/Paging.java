@@ -12,7 +12,7 @@ public class Paging {
 	boolean next;
 	
 	public int section(int page) {
-		section = ( page - 1 ) / 5;
+		section = ( page - 1 ) / 5; //페이지가 1~5까지는 0section , 6~10까지는 1section
 		return section;
 	}
 	
@@ -21,17 +21,17 @@ public class Paging {
 		return begin;
 	}
 	
-	public int end (int pageCount) {
+	public int end (int pageCount) { //pageCount = 페이징 갯수
 		end = pageCount < begin + 4 ? pageCount : begin+4;
 		return end;
 	}
 	
-	public boolean prev (int section) {
+	public boolean prev (int section) { //버튼
 		prev = (section != 0);
 		return prev;
 	}
 	
-	public boolean next(int pageCount, int end) {
+	public boolean next(int pageCount, int end) { //버튼
 		next = (pageCount / 5 != end / 5);
 		return next;
 	}

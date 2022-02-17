@@ -53,12 +53,12 @@ public class BoardController {
 		
 		
 //		List<HashMap<String, Object>> list = bs.getNotice(offset);
-		List<HashMap<String, Object>> list = ns.searchList(map);
+		List<HashMap<String, Object>> list = ns.searchList(map); //search, offset을 가지고간다.(search는 null가능)
 		List<HashMap<String, Object>> topList = ns.topList();
 		
 //		int total = ns.getTotal();
 		
-		int total = ns.searchTotal(search);
+		int total = ns.searchTotal(search); //총 ?개의 게시글이 있습니다.
 		
 		int pageCount = (total / 5);
 		pageCount = total % 5 == 0 ? pageCount : pageCount + 1 ;
@@ -79,6 +79,7 @@ public class BoardController {
 		System.out.println("prev : " + prev);
 		System.out.println("next : " + next);
 		System.out.println(list);
+		System.out.println(topList);
 		
 		mav.addObject("pageCount", pageCount);
 		mav.addObject("section", section);

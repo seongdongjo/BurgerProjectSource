@@ -57,7 +57,7 @@
                     <a href="${ cpath }"><img class="main-logo" src="${ cpath }/resources/src/픽셀 버거2.png"></a>
                 </div>
                 <nav class="top-menu">
-                    <ul>
+                    <ul> <!-- 여기에 마우스를 올리면 display : block -->
                         <li class="top-menu-li">
                             <a href="${ cpath }/menu/list/burger">Menu</a>
                             <div class="top-menu-submenu">

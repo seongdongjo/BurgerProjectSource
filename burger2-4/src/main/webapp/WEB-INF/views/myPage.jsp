@@ -29,7 +29,7 @@
 				<tbody>
 					<tr>
 						<c:if test="${ not empty orderList }">
-							<td>${ orderList.orderDate }-${ orderList.orderSeq }</td>
+							<td>${ orderList.orderDate }-${ orderList.order_Seq }</td>
 							<td><div id="timer" ></div></td>
 <%-- 							<td>${ timer }</td> --%>
 							<td>🗒 ${orderList.orderstatus=='y'? '✔️'   :  ''}  </td>

@@ -26,7 +26,7 @@ public interface OrderListDAO {
 
 	@Select("select * from orderlist_table "
 			+ "where userid = #{ userid } "
-			+ "order by orderseq desc "
+			+ "order by order_seq desc "
 			+ "offset ${ offset } rows "
 			+ "fetch first 5 rows only")
 	List<OrderListDTO> selectList(HashMap<String, Object> map);

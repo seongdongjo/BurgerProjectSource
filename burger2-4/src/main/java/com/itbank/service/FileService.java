@@ -34,10 +34,10 @@ public class FileService {
 //	}
 	
 	// 전송에 필요한 정보
-	private final String serverIP = "192.168.0.98";
+	private final String serverIP = "183.104.165.82";
 	private final int serverPort = 22;
 	private final String serverUser = "root";
-	private final String serverPass = "1";
+	private final String serverPass = "root";
 	private ChannelSftp chSftp = null;
 		
 	public int upload(NoticeDTO dto) throws Exception {

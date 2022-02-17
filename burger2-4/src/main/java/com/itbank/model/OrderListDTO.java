@@ -16,12 +16,12 @@ import java.sql.Date;
 
 public class OrderListDTO {
 
-	private int orderSeq;
+	private int order_Seq;
 	private Date orderDate, deliveryTime;
 	private String userid, price, total, orderAddress, phone, menus, paystatus, orderstatus, requirement;
 	
 	public int getOrderSeq() {
-		return orderSeq;
+		return order_Seq;
 	}
 	public Date getOrderDate() {
 		return orderDate;
@@ -56,8 +56,8 @@ public class OrderListDTO {
 	public String getRequirement() {
 		return requirement;
 	}
-	public void setOrderSeq(int orderSeq) {
-		this.orderSeq = orderSeq;
+	public void setOrderSeq(int order_Seq) {
+		this.order_Seq = order_Seq;
 	}
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;

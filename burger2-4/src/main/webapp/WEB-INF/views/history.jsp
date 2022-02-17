@@ -21,7 +21,7 @@
 			<table class="myPage-tableType01" border="1" cellpadding="15" cellspacing="0">
 				<thead>
 					<tr>
-						<th scope="col">주문 번호 :</th>
+						<th scope="col">주문 번호</th>
 						<th scope="col">배달 시간/날짜</th>
 						<th scope="col">주소</th>
 						<th scope="col">메뉴</th>

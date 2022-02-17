@@ -437,7 +437,7 @@ header {
 	transition-duration: 0.3s;
 }
 
-.top-menu>ul:hover .top-menu-submenu {
+.top-menu>ul:hover .top-menu-submenu { <!--top-menu-submenu의 display를 block으로 -->
 	display: block;
 }
 

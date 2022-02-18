@@ -400,8 +400,8 @@ header {
 	height: 250px;
 	margin-left: -40px;
 	/* margin-right: 30px; */
-	position: absolute; -
-	-transition: 0.5s;
+	position: absolute;
+	transition: 0.5s;
 	background-color: white;
 	/* 혜린 추가  */
 	z-index: 2; 
@@ -437,7 +437,7 @@ header {
 	transition-duration: 0.3s;
 }
 
-.top-menu>ul:hover .top-menu-submenu { <!--top-menu-submenu의 display를 block으로 -->
+.top-menu>ul:hover .top-menu-submenu { /*top-menu-submenu의 display를 block으로 */
 	display: block;
 }
 

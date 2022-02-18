@@ -46,9 +46,9 @@
 	const promotionImageList = document.querySelector('.promotion-imageList-home')
 	console.log(promotionImageList)
 	
-	let value = 0
+	//let value = 0
 
-	const unit = 1700
+	//const unit = 1700
 
 	// 메인 페이지 +,- 버튼	
 	let cnt1 = 1

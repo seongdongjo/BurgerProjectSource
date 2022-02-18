@@ -41,6 +41,16 @@ public class AjaxController {
 	// 프로모션
 	@GetMapping("/ajaxPromotion")
 	public List<PromDTO> promList(){
+		System.out.println("이거지: " + ms.getList());
+		// [com.itbank.promotion.PromDTO@51e38ef6, 
+		// com.itbank.promotion.PromDTO@30e45c75, 
+		// com.itbank.promotion.PromDTO@3d7959cf, 
+		// com.itbank.promotion.PromDTO@7f529623, 
+		// com.itbank.promotion.PromDTO@328b2301, 
+		// com.itbank.promotion.PromDTO@209ec6d1, 
+		// com.itbank.promotion.PromDTO@575e442c, 
+		// com.itbank.promotion.PromDTO@3cd6336a, 
+		//com.itbank.promotion.PromDTO@57ae9cda]
 		return ms.getList();
 	}
 	

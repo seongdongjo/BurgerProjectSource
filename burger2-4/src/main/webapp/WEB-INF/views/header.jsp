@@ -57,10 +57,10 @@
                     <a href="${ cpath }"><img class="main-logo" src="${ cpath }/resources/src/픽셀 버거2.png"></a>
                 </div>
                 <nav class="top-menu">
-                    <ul> <!-- 여기에 마우스를 올리면 display : block -->
+                    <ul> <!-- 여기에 마우스를 올리면-->
                         <li class="top-menu-li">
-                            <a href="${ cpath }/menu/list/burger">Menu</a>
-                            <div class="top-menu-submenu">
+                            <a href="${ cpath }/menu/list/burger">Menu</a> <!--그냥 Menu클릭시 burger로 이동 -->
+                            <div class="top-menu-submenu"> <!--display : block -->
                                 <ul class="top-menu-inner">
 									<!-- 혜린 추가 -->
                                     <li><a href="${ cpath }/menu/list/mcmorning">맥모닝</a></li>
@@ -128,7 +128,7 @@
                     <li>
                     	<img class="search-icon" src="${ cpath }/resources/src/검색아이콘.png" alt="">
                     	<div class="modal hidden">
-                    		<div class="overlay"></div>
+                    		<div class="overlay"></div> <!-- black배경 -->
                     		<div class="modal-content">
                     			<form action="${ cpath }/search">
                     				<select name="type">

@@ -19,7 +19,7 @@ public class MenuController {
 	
 	@Autowired private MenuService ms;
 	
-	@GetMapping("/list/{table}")
+	@GetMapping("/list/{table}") //burger, mcmorning 등등의 table
 	public ModelAndView list(@PathVariable String table) {
 		ModelAndView mav = new ModelAndView("/menu/list");
 

@@ -35,15 +35,14 @@
     </section>
 
     <div class="title-main">
-    <h1>Coded Burger Live</h1>
-    <hr class="title-hr">
+	    <h1>Coded Burger Live</h1>
+	    <hr class="title-hr">
     </div>
 	
 <!--     <div class="main-inner detailinfo"> -->
 <!-- <!--         <div class="main-inner-one"></div> --> 
 <!--     </div>         -->
-    <div class="promotion-imageList-home">   
-    </div>
+    <div class="promotion-imageList-home"></div> <!--max-height조절 (+,-클릭할떄마다) -->
 
    	<div class="menu-button">
 		<button id="menuOpen"></button>

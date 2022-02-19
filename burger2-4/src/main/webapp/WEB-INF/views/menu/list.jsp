@@ -59,8 +59,8 @@
 		
 		const topList = document.querySelector('.menu-top')
 		const menuList = document.querySelector('.menu-product-list')
-		const menuLink = document.querySelectorAll('.top-menu-li:nth-child(1) a')
-		const detail = document.querySelectorAll('.menu-product-list div')
+		/* const menuLink = document.querySelectorAll('.top-menu-li:nth-child(1) a')
+		const detail = document.querySelectorAll('.menu-product-list div') */
 
 		console.log(topList)
 		if(table == '') { table = 'burger_table' }
@@ -75,7 +75,7 @@
 		let cnt2 = 2
 		console.log(cnt1)
 		console.log(cnt2)
-		menuOpen.onclick = function(){
+		menuOpen.onclick = function(){ //+,- 클릭시 발동하는 함수
 
 				
 				menuList.style.maxHeight = cnt2  * 600 + 'px'

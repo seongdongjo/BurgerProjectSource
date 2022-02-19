@@ -108,9 +108,10 @@
 			<div class="menu-detail-nutrition">
 				<div class="menu-nutrition-info">
 					<h4>영양정보</h4> 
-					<button class="menu-btn-plus">+</button>
+					<button class="menu-btn-plus">+</button> <!-- +클릭시 hidden -->
 					<button class="menu-btn-minus hidden">-</button>
 				</div>
+				<!--  +버튼 클릭시 table의 hidden이 사라진다 -->
 				<table class="nutri-table hidden" border="0" cellpadding="15" cellspacing="0">
 					<thead>
 						<tr>
@@ -134,7 +135,7 @@
 			
 			<div class="menu-allergy-info">
 				<h4>알레르기 정보</h4>
-				<button class="allery-btn-puls">+</button>
+				<button class="allery-btn-puls">+</button> <!-- +클릭시 hidden -->
 				<button class="allery-btn-minus hidden">-</button>
 			</div>
 			<div class="menu-detail-allergy hidden"></div>

@@ -19,7 +19,7 @@ public interface MenuDAO {
 	@Select("select count(*) count from ${ table }_table")
 	int countList(String table);
 
-	@Select("select * from ${table}TABLE where ${table}SEQ = ${seq}")
+	@Select("select * from ${table}TABLE where ${table}SEQ = ${seq}") //table에는 BURGER_ 넘어온다
 	List<HashMap<String, Object>> selectDtailList(HashMap<String, Object> map);
 
 	

@@ -71,6 +71,8 @@ function getDetailList(table,json){
 			break
 	}
 }
+
+//drink, mccafe, side는 영양정보에 // 가 포함되있어서 함수를 nutritionSplit함수로 보냄
 function getDeMcmorning(json){
 	detailTop(json)
 	nutrition(json)
@@ -111,7 +113,7 @@ function detailTop(json){
 			else if(key == (kArr[0]+'_DESCRIPTION')){
  				desc.innerHTML = dto[key]						
 			}
-			else if(key == 'SALES_TIME'){
+			else if(key == 'SALES_TIME'){ //맥모닝만 해당
  				time.innerHTML = (dto[key] != 0) ? '*판매시간:'+dto[key] : ''					
  			}
 			else if(dto['ALLERGY_INFO'] != 'null'){
@@ -122,6 +124,8 @@ function detailTop(json){
 		}
 	})
 }
+
+//여기는  // 가 없다. -> 배열을쓰지않는다
 function nutrition(json){
 	json.forEach(dto =>{
 		for(key in dto){
@@ -136,8 +140,9 @@ function nutrition(json){
 			nutrition += '<td>'+((dto['NATRIUM'] != 0) ? dto['NATRIUM']+'mg' : '-')+'</td>'
   			nutrition += dto['CAFFEINE'] != undefined ? '<td>'+(dto['CAFFEINE'] != 0 ? dto['CAFFEINE']+'mg' : '-')+'</td>' : '<td>-</td>'
 							
-			con.innerHTML = nutrition
-			
+			con.innerHTML = nutrition //con은 detail.jsp에 변수정의
+			//drink, mccafe, side테이블뺴고는 nutrient_standards_? 컬럼에는 null이 없다. 하나의 값만있다
+			//그래서 바로 length비교하지않고 0을 비교한다
 			let baseline = ''
 			baseline += '<th>영양소기준치</th>'
 			baseline += '<td>-</td>'
@@ -149,17 +154,19 @@ function nutrition(json){
 			baseline += '<td>'+((dto['NUTRIENT_STANDARDS_NATRIUM'] != 0) ? dto['NUTRIENT_STANDARDS_NATRIUM']+'%' : '-')+'</td>'
 			baseline += '<td>-</td>'
 		
-			thres.innerHTML = baseline
+			thres.innerHTML = baseline //thres는 detail.jsp에 변수정의
 		}
 	})
 }
 function nutritionSplit(json){
 	json.forEach(dto =>{
+		//console.log(dto) 바닐라쉐이크에대한 allergy, img, kcal 등등
 		for(key in dto){
 			let nutrition = ''
 			nutrition += '<th>함량</th>'
 			let wg = dto['WEIGHT_G'].split(' // ')
-			nutrition += (wg.length == 1) ? 
+			//console.log(wg)-> ['0'](length: 1) 총 18번 출력된다. why? dto안의 key개수만큼 반복하니까
+			nutrition += (wg.length == 1) ? //length비교하는이유는 // 로 자르면 길이가 최소1이상이니까 2이상이면 두번째 weight_g를 출력
   					 '<td>'+((wg[0] != 0) ? wg[0]+'g' : '-')+'</td>' :
   						 '<td>'+((wg[1] != 0) ? wg[1]+'g' : '-')+'</td>'
   			let wml = dto['WEIGHT_ML'].split(' // ')
@@ -199,7 +206,7 @@ function nutritionSplit(json){
 			baseline += '<td>-</td>'
 			baseline += '<td>-</td>'
 			let ssrr = dto['NUTRIENT_STANDARDS_SUGAR'].split(' // ')
-			baseline += (ssrr.length == 1) ?
+			baseline += (ssrr.length == 1) ? //[null // 112 // 133]이렇게 null이 들어가도 length가 2이상이니까 ssrr[1]을 출력
 						'<td>'+((ssrr[0] != 0) ? ssrr[0]+'%' : '-')+'</td>' :
 					 	'<td>'+((ssrr[1] != 0) ? ssrr[1]+'%' : '-')+'</td>'
 			let sprr = dto['NUTRIENT_STANDARDS_PROTEIN'].split(' // ')

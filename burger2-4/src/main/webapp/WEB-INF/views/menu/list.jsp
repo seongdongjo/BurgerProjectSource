@@ -58,14 +58,14 @@
 		const itemHeight = 600
 		
 		const topList = document.querySelector('.menu-top')
-		const menuList = document.querySelector('.menu-product-list')
+		const menuList = document.querySelector('.menu-product-list') //menu.js에서삽입
 		/* const menuLink = document.querySelectorAll('.top-menu-li:nth-child(1) a')
 		const detail = document.querySelectorAll('.menu-product-list div') */
 
 		console.log(topList)
 		if(table == '') { table = 'burger_table' }
 	
-		getJson(table)
+		getJson(table) //list띄우기
 			
 		
 		const menuOpen = document.getElementById('menuOpen')
@@ -81,7 +81,7 @@
 				menuList.style.maxHeight = cnt2  * 600 + 'px'
 				
 				console.log(cnt2)
-				if(cnt1 == cnt2){
+				if(cnt1 == cnt2){ //상품이 이제 없으면 +를 -로 바꾼다
 					menuOpen.classList.add('hidden')
 					menuClose.classList.remove('hidden')
 					cnt2 = 1

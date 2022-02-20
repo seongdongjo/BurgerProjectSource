@@ -17,7 +17,7 @@ function getPrev(table,seq){
 	const url = cpath + '/menuDetail'
 	const opt = {
 		method : 'POST',
-		body : JSON.stringify(ob),
+		body : JSON.stringify(ob), //ob객체를 보낸다.
 		headers : {
 			'Content-Type': 'application/json; charset=utf-8'
 		}

@@ -103,7 +103,7 @@
 		<div class="menu-detail-name"></div>
 		<div class="menu-detail-img"></div>
 		<div class="menu-detail-desc"></div>
-		<div class="menu-detail-time"></div>
+		<div class="menu-detail-time"></div> <!-- 여기까지가 detailtop부분 -->
 		<div class="menu-detail-info">
 			<div class="menu-detail-nutrition">
 				<div class="menu-nutrition-info">
@@ -176,8 +176,8 @@
 
 <script>
 	const cpath = '${cpath}'
-	const table = '${table}'
-	const seq = '${sequence}'
+	const table = '${table}'   //menucontroller에서 넘어온
+	const seq = '${sequence}' //menucontroller에서 넘어온
 	const name = document.querySelector('.menu-detail-name')
 	const img = document.querySelector('.menu-detail-img')
 	const desc = document.querySelector('.menu-detail-desc')
@@ -186,7 +186,7 @@
 	const thres = document.querySelector('.nutrition-thresholds')
 	const aller = document.querySelector('.menu-detail-allergy')
 	
-	getDetailJson(table,seq)
+	getDetailJson(table,seq) //menudetail.js
 	
 	const nutriBtn1 = document.querySelector('.menu-btn-plus')
 	const nutriBtn2 = document.querySelector('.menu-btn-minus')

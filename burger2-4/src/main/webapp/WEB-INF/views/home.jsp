@@ -3,7 +3,7 @@
     
 <%@ include file="header.jsp" %>
 
-
+	<!-- 슬라이더 클릭이벤트 함수들은 footer.jsp, main.js에 있음. -->
     <section class="main-slide">
         <div class="slide">
 	       <div class="active" style="background-image:url(${cpath}/resources/src/slide/1617176534703.png);"></div>
@@ -42,6 +42,8 @@
 <!--     <div class="main-inner detailinfo"> -->
 <!-- <!--         <div class="main-inner-one"></div> --> 
 <!--     </div>         -->
+	
+	<!-- 미리 사진을 다 넣어놓고 -->
     <div class="promotion-imageList-home"></div> <!--max-height조절 (+,-클릭할떄마다) -->
 
    	<div class="menu-button">

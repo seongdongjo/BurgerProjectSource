@@ -20,7 +20,7 @@ function btn1Handler(){
 	}
 }
 */
-function modalOpen(){
+function modalOpen(){ //header.jsp의 검색부분
 	modal.classList.remove('hidden')
 	searchIcon.classList.add('hidden')
 }
@@ -86,19 +86,20 @@ function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
     post.addClass('active')
 }
 
+//slide < > 버튼클릭시
 // 계속 오른쪽 버튼을 클릭하는거랑 동일하게 진행
 function slider(){ //side-btns밑에 div(left,right)클릭 시 발동하는 함수
 	const $this = $(this)
     let slider = $this.closest('.main-slide') //부모인 .main-slide하나만 찾는다.
     
-    let index = $this.index()
-    let isLeft = index == 0
+    let index = $this.index() 
+    let isLeft = index == 0 //왼쪽을 클릭했을때는 index가 0이다
     
     let current = slider.find('.page-btns > div.active')
     let post
     
-    if ( isLeft ){
-        post = current.prev() //이전요소(div class="active"의 이전요소)
+    if ( isLeft ){ //왼쪽버튼일때
+        post = current.prev() //이전요소(div class="active"의 이전요소), 왼쪽의마지막이면 length가 0
     }
     else {
         post = current.next() //다음요소
@@ -119,6 +120,6 @@ function slider(){ //side-btns밑에 div(left,right)클릭 시 발동하는 함�
 // interval로 움직이는 함수
 function setMoveInterval(){
 	setInterval(function(){
-	    $('.main-slide > .side-btns > div').eq(1).click(); 
+	    $('.main-slide > .side-btns > div').eq(1).click(); //오른쪽을 클릭해라
 	}, 6000)
 }

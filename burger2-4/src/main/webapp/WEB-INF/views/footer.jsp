@@ -75,15 +75,15 @@
 // 	})
 	
 	window.addEventListener('load', function(){
- 		promotionAjax()
+ 		promotionAjax() //main의 promotion사진(+,-쪽)
  	})
 	
 	// 기존 버튼형 슬라이더
-	$('.main-slide > .page-btns > div').click(btnSlider)
+	$('.main-slide > .page-btns > div').click(btnSlider) //btnSilder함수실행(main.js)
 
 	// 좌/우 버튼 추가 슬라이더
 	// 자동 슬라이드 기능도 같이 동작함
-	$('.main-slide > .side-btns > div').click(slider)
+	$('.main-slide > .side-btns > div').click(slider) //silder함수실행(main.js)
 
 	window.addEventListener('load', function(){
 		setMoveInterval()

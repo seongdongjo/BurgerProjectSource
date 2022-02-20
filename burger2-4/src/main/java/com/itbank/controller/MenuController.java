@@ -35,7 +35,7 @@ public class MenuController {
 		return mav;
 	}
 	
-	@PostMapping("/detail")
+	@PostMapping("/detail") //menu-top부분
 	public ModelAndView detail(String table, int seq) {
 		ModelAndView mav = new ModelAndView("/menu/detail");
 		List<HashMap<String, Object>> tList = ms.getTopList(table.toUpperCase()+"_TABLE");

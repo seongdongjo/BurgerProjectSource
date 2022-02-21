@@ -41,7 +41,7 @@
 							<img src="https://www.mcdonalds.co.kr/upload/main/store_service/1580887849368.png">
 							<p>디카페인 커피</p>
 						</div>
-					</div>
+				</div>
 					
 				<fieldset class="store-searchbox">
 					<div class="store-form">
@@ -139,7 +139,7 @@
 	let offset = (page - 1) * 10
 	
 	// 2022-01-21 추가
-	const serviceCategory = document.querySelectorAll('.service-category > div')
+	const serviceCategory = document.querySelectorAll('.service-category > div') //24시간, parking, 등등 다가져와라
 	console.log(serviceCategory)
 	
 	serviceCategory.forEach(dto => {

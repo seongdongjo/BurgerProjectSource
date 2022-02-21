@@ -11,7 +11,7 @@
 	</ul>
 </div>
 <div class="search-menu">
-	<form action="${ cpath }/search">
+	<form action="${ cpath }/search"> <!-- get으로 요청 -->
 		<select name="type">
 			<option ${ param.type == 'burger' ? 'selected' : '' } value="burger">버거</option>
 			<option ${ param.type == 'mcmorning' ? 'selected' : '' } value="mcmorning">맥모닝</option>

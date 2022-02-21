@@ -89,7 +89,7 @@
 		setMoveInterval()
 	})
 	
-	// 모달 함수
+	// 모달 함수 -> main.js
 	searchIcon.addEventListener('click', function(){
 		modalOpen()
 	})

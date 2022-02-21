@@ -70,8 +70,8 @@ function getPromDom(json){
 */
 // 버튼을 누르면 이동
 function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
-	const $this = $(this)
-    let index = $this.index()
+	const $this = $(this) //클릭한 div를 받아와서
+    let index = $this.index() //클릭한 div의 index를 저장
     
     $this.addClass('active')
     $this.siblings('.active').removeClass('active') //형제노드에서 클래스가 active인것을 가져와서 active를 제거

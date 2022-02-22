@@ -78,9 +78,9 @@ function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
     
     let slider = $this.parent().parent() //main-slide로(section)
     
-    let current = slider.find('.slide > div.active')
+    let current = slider.find('.slide > div.active') //슬라이드에서 현재 active를 찾고
     
-    let post = slider.find('.slide > div').eq(index)
+    let post = slider.find('.slide > div').eq(index) //위에서찾은 index의 div를 post에 저장
     
     current.removeClass('active')
     post.addClass('active')
@@ -114,7 +114,7 @@ function slider(){ //side-btns밑에 div(left,right)클릭 시 발동하는 함�
         }
     }
     
-    post.click()
+    post.click()//post가 pagebtn밑의 div
 }
 
 // interval로 움직이는 함수

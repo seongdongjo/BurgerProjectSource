@@ -28,16 +28,16 @@ public class AjaxStoreController {
 
 	// store-cate
 	@PostMapping("/storeCate")
-	public HashMap<String, Object> storeCate(@RequestBody HashMap<String, Object> map1) {
+	public HashMap<String, Object> storeCate(@RequestBody HashMap<String, Object> map1) { //넘겨받은 ob객체
 		System.out.println(map1);
 		
 		Object cate = map1.get("cate");
-		String cate1 = (String) cate;
+		String cate1 = (String) cate; //내가클릭한 24시간, 주차가능, 맥드라이브 등등
 
 		Object page1 = map1.get("page");
 
 		List<HashMap<String, Object>> list = ss.selectCate(map1);
-
+		System.out.println(list);
 		int page = (int)page1;
 
 		int total = ss.selectCount(cate1);

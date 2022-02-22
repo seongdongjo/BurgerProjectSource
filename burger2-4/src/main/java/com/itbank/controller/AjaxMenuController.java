@@ -35,8 +35,8 @@ public class AjaxMenuController {
 		List<HashMap<String, Object>> mlist = ms.getMenuList(table);
 
 		System.out.println(tlist);
-		list.put("tlist", tlist);
-		list.put("mlist", mlist);
+		list.put("tlist", tlist); //top이미지
+		list.put("mlist", mlist); //메뉴이미지들
 		return list;
 	}
 

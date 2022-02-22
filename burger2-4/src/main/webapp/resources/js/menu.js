@@ -1,5 +1,5 @@
 function getJson(table){
-	const url = cpath + '/ajaxMenu/' + table //메뉴탑전용, 그 아래 메뉴이미지 Ajax
+	const url = cpath + '/ajaxMenu/' + table
 	const opt = {
 			method : 'GET',
 	}
@@ -7,7 +7,7 @@ function getJson(table){
 	.then(resp => resp.json())
 	.then(json => {
 		console.log(json)
-		getMenuList(table,json) //json에는 tlist,mlist가있다. //json.tlist, json.mlist
+		getMenuList(table,json) //json에는 tlist,mlist가있다. tlist는 top이미지, mlist는 메뉴이미지들
 	})
 }
 function getMenuList(table,json){

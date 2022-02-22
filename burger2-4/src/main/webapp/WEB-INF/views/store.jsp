@@ -46,9 +46,7 @@
 				<fieldset class="store-searchbox">
 					<div class="store-form">
 						<input class="store-searchInput" type="text" id="address" name="address_kakao" placeholder="도로명을 검색해 주세요" readonly>
-<!-- 							<input class="store-searchInput" type="text" placeholder="도로명을 검색해 주세요" > -->
 						<input class="store-searchBtn" type="button" id="searchBtn" value="검색">
-<!-- 							<button type="button" class="store-searchBtn" onclick="search()">검색하기</button>	 -->
 					</div>
 				</fieldset>
 			</div>
@@ -143,12 +141,12 @@
 	console.log(serviceCategory)
 	
 	serviceCategory.forEach(dto => {
-		dto.onclick = function(event){
+		dto.onclick = function(event){ //24시간, 주차, 맥드라이브 등 클릭할 때
 			// 주소-좌표 변환 객체를 생성합니다
 			var geocoder = new kakao.maps.services.Geocoder();
 			
 			let target = event.target
-			if(target != 'DIV'){
+			if(target != 'DIV'){ 
 				target = target.parentNode
 				const cate = target.dataset.cate
 				console.log(cate)
@@ -169,8 +167,8 @@
 				fetch(url, opt)
 				.then(resp => resp.json())
 				.then(json => {
-					console.log(json)
-					console.log(json.list)
+					console.log(json) //json에는 controller에서받은 cate, begin, list 등이있다.
+					console.log(json.list) //console.log("d" + json.list)하면 d[object]..로출력됨 주의!!
 					let dom1 = ''
 					let dom2 = ''
 					let dom3 = ''
@@ -195,9 +193,9 @@
 						        let lat = result[0].y;
 						        let lng = result[0].x;
 						        
-						        console.log(lat)
-						        console.log(lng)
-						        getAddr(lat, lng);
+						        console.log(lat) //5번반복(페이징때문에)
+						        console.log(lng) //5번반복(페이징때문에)
+						        getAddr(lat, lng); //함수전달
 						        
 						        function getAddr(lat, lng){
 						        	let geocoder = new kakao.maps.services.Geocoder();

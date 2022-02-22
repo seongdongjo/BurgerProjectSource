@@ -62,7 +62,6 @@
                             <a href="${ cpath }/menu/list/burger">Menu</a> <!--그냥 Menu클릭시 burger로 이동 -->
                             <div class="top-menu-submenu"> <!--display : block -->
                                 <ul class="top-menu-inner">
-									<!-- 혜린 추가 -->
                                     <li><a href="${ cpath }/menu/list/mcmorning">맥모닝</a></li>
                                     <li><a href="${ cpath }/menu/list/burger">버거</a></li>
                                     <li><a href="${ cpath }/menu/list/side">사이드</a></li>

@@ -27,7 +27,9 @@ function getPrev(table,seq){
 	.then(json => {
 		getDetailList(table,json)
 	})
-	btnSeq--
+	if(btnSeq > 1) {
+		btnSeq--  //detail.jsp에 있는 변수
+	}
 }
 function getNext(table,seq){
 	let ob = {
@@ -101,12 +103,12 @@ function detailTop(json){
 	console.log(json)
 	json.forEach(dto =>{
 		for(key in dto){
-			let kArr = key.split('_')
-			if(key == (kArr[0]+'_NAME')){
+			let kArr = key.split('_') //burger_name,mcmoring_name 등에서 _name 앞부분만 계속 바뀌니까 자른다
+			if(key == (kArr[0]+'_NAME')){ //BURGER_NAME 이면
 				let nArr = dto[key].split(' // ')
 				name.innerHTML = (nArr.length == 1) ?  nArr[0] : nArr[1]						
 			}
-			else if(key == (kArr[0]+'_IMG')){
+			else if(key == (kArr[0]+'_IMG')){ //BURGER_IMG 이면
 				let iArr = dto[key].split(' // ')
 				img.innerHTML = '<img src ="'+((iArr.length == 1) ?  iArr[0] : iArr[1])+'">'						
 			}
@@ -125,7 +127,7 @@ function detailTop(json){
 	})
 }
 
-//여기는  // 가 없다. -> 배열을쓰지않는다
+//여기는(사이즈나 개수가 없는 카테고리 ex: mcmorning, burger 등등) 데이터에 ' // ' 가 없다. -> 배열을쓰지않는다
 function nutrition(json){
 	json.forEach(dto =>{
 		for(key in dto){
@@ -141,7 +143,7 @@ function nutrition(json){
   			nutrition += dto['CAFFEINE'] != undefined ? '<td>'+(dto['CAFFEINE'] != 0 ? dto['CAFFEINE']+'mg' : '-')+'</td>' : '<td>-</td>'
 							
 			con.innerHTML = nutrition //con은 detail.jsp에 변수정의
-			//drink, mccafe, side테이블뺴고는 nutrient_standards_? 컬럼에는 null이 없다. 하나의 값만있다
+			//drink, mccafe, side테이블뺴고는 nutrient_standards_? 컬럼에는 null이 없다(사이즈,개수없음). 하나의 값만있다
 			//그래서 바로 length비교하지않고 0을 비교한다
 			let baseline = ''
 			baseline += '<th>영양소기준치</th>'
@@ -165,7 +167,8 @@ function nutritionSplit(json){
 			let nutrition = ''
 			nutrition += '<th>함량</th>'
 			let wg = dto['WEIGHT_G'].split(' // ')
-			//console.log(wg)-> ['0'](length: 1) 총 18번 출력된다. why? dto안의 key개수만큼 반복하니까
+			//console.log(wg)-> ['0'](length: 1) 같은값을 총 18번 출력된다. why? dto안의 key개수만큼 반복하니까
+			//여기서 key는 weight_ml, kcal, weight,g 등등 -> 그래서 같은값 18번 출력
 			nutrition += (wg.length == 1) ? //length비교하는이유는 // 로 자르면 길이가 최소1이상이니까 2이상이면 두번째 weight_g를 출력
   					 '<td>'+((wg[0] != 0) ? wg[0]+'g' : '-')+'</td>' :
   						 '<td>'+((wg[1] != 0) ? wg[1]+'g' : '-')+'</td>'

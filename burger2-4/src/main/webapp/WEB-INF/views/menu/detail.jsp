@@ -143,7 +143,7 @@
 	</div>
 	
 </div>
-	<div class="detail-btn">
+	<div class="detail-btn"> <!-- 다음메뉴, 이전메뉴 -->
 		<button class="detail-prev-btn"></button>
 		<button class="detail-next-btn"></button>
 	</div>
@@ -186,8 +186,6 @@
 	const thres = document.querySelector('.nutrition-thresholds')
 	const aller = document.querySelector('.menu-detail-allergy')
 	
-	getDetailJson(table,seq) //menudetail.js
-	
 	const nutriBtn1 = document.querySelector('.menu-btn-plus')
 	const nutriBtn2 = document.querySelector('.menu-btn-minus')
 	const allergyBtn1 = document.querySelector('.allery-btn-puls')
@@ -196,6 +194,8 @@
 	
 	const detailPrev = document.querySelector('.detail-prev-btn')
 	const detailNext = document.querySelector('.detail-next-btn')
+	
+	getDetailJson(table,seq) //menudetail.js
 	
 	let btnSeq = ${sequence}
 	

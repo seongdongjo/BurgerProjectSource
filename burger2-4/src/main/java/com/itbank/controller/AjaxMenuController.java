@@ -86,7 +86,7 @@ public class AjaxMenuController {
 	}
 	
 	@PostMapping("/menuDetail")
-	public List<HashMap<String, Object>> menuDetail(@RequestBody HashMap<String, Object> map){
+	public List<HashMap<String, Object>> menuDetail(@RequestBody HashMap<String, Object> map){ //map에는 sequence,table이 있다.
 		
 		List<HashMap<String, Object>> list = ms.menuDetail(map);
 		

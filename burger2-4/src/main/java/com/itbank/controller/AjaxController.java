@@ -41,7 +41,7 @@ public class AjaxController {
 	// 프로모션
 	@GetMapping("/ajaxPromotion")
 	public List<PromDTO> promList(){
-		System.out.println("이거지: " + ms.getList());
+		System.out.println(ms.getList());
 		// [com.itbank.promotion.PromDTO@51e38ef6, 
 		// com.itbank.promotion.PromDTO@30e45c75, 
 		// com.itbank.promotion.PromDTO@3d7959cf, 

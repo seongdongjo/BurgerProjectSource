@@ -134,10 +134,10 @@
 	let addressValue = address.value
 	
 	let page = 1
-	let offset = (page - 1) * 10
+	let offset = (page - 1) * 5
 	
 	// 2022-01-21 추가
-	const serviceCategory = document.querySelectorAll('.service-category > div') //24시간, parking, 등등 다가져와라
+	const serviceCategory = document.querySelectorAll('.service-category > div') //24시간, parking, 등등 다가져옵니다.
 	console.log(serviceCategory)
 	
 	serviceCategory.forEach(dto => {
@@ -296,7 +296,7 @@
 						e.preventDefault()
 						console.log(e.target.dataset.page)
 						let page = parseInt(e.target.dataset.page)
-						let offset = ( page - 1) * 10
+						let offset = ( page - 1) * 5
 						let cate = json.cate
 						
 						const ob = {
@@ -373,7 +373,7 @@
 						e.preventDefault()
 						console.log(e.target.dataset.page)
 						let page = parseInt(e.target.dataset.page)
-						let offset = ( page - 1) * 10
+						let offset = ( page - 1) * 5
 						let cate = json.cate
 						
 						const ob = {
@@ -469,7 +469,7 @@
 						e.preventDefault()
 						console.log(e.target.dataset.page)
 						let page = parseInt(e.target.dataset.page)
-						let offset = ( page - 1) * 10
+						let offset = ( page - 1) * 5
 						let cate = json.cate
 						
 						const ob = {
@@ -569,7 +569,7 @@
 	})
 
     document.getElementById("address").addEventListener("click", function(){ //주소입력칸을 클릭하면
-        //카카오 지도 발생
+        //주소검색
         new daum.Postcode({
             oncomplete: function(data) { //선택시 입력값 세팅
                 document.getElementById("address").value = data.address // 주소 넣기
@@ -582,6 +582,7 @@
 
 
 <script>
+//첫 지도 좌표
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(35.2558405675426, 128.606701385218), // 지도의 중심좌표
@@ -614,24 +615,26 @@ searchBtn.onclick = function(){
 			     if (status === kakao.maps.services.Status.OK) {
 			        let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 			        // 추출한 좌표를 통해 도로면 주소 추출
-			        
+			        console.log(result) //result[0] -> address, road_address, x,y좌표가 있다.
 			        let lat = result[0].y;
 			        let lng = result[0].x;
 			        
-			        getAddr(lat, lng);
+			       	getAddr(lat, lng)
 			        
 			        function getAddr(lat, lng){
 			        	let geocoder = new kakao.maps.services.Geocoder();
 			        	
 			        	let coord = new kakao.maps.LatLng(lat, lng);
+			        	//console.log(coord) //la,ma출력
 			        	let callback = function(result,status){
 			        		if(status === kakao.maps.services.Status.OK){
+			        			console.log(result) 
 			        			// 추출한 도로명 주소를 해당 input의 value값으로 적용
 //		 	        			addressValue(result[0].road_address.address_name);
 // 			        			$('#address').val(result[0].road_address.address_name)
 			        		}
 			        	}
-			        	geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+			        	geocoder.coord2Address(coord.getLng(), coord.getLat(), callback); //경도,위도
 			        }
 			        // 결과값으로 받은 위치를 마커로 표시합니다
 			        let marker = new kakao.maps.Marker({
@@ -642,7 +645,7 @@ searchBtn.onclick = function(){
 			        let infowindow = new kakao.maps.InfoWindow({
 			            content: '<div style="width:150px;text-align:center;padding:6px 0;"> ' + dto.store_name +'</div>'
 			        })
-			        infowindow.open(map, marker);
+			        infowindow.open(map, marker); //해당 위치에 마커를 찍고, div(dto.store_name)
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords)

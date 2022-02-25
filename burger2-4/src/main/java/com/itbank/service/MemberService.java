@@ -22,7 +22,7 @@ public class MemberService {
 	
 	public String getAgreement(String path) throws IOException {
 		String agreement = "";
-		File f = new File(path);
+		File f = new File(path); //주어진 문자열 경로를 갖는 File 객체를 생성합니다
 		
 		if(f.exists() == false) {
 			System.out.println("파일이 없습니다");

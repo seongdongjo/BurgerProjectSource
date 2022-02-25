@@ -36,13 +36,14 @@ public class JoinController {
 	}
 	
 	@GetMapping("/join/step1")
+	//약관동의했는지 agree 파라미터로 받아서 확인
 	public ModelAndView step1(String agree, @RequestHeader("referer") String referer) {
 		ModelAndView mav = new ModelAndView("join/step1");
 		
 		if(agree == null) {
 			mav.setViewName("alert");
 			mav.addObject("msg", "약관에 동의하셔야 가입이 가능합니다");
-			mav.addObject("url", "join");
+			mav.addObject("url", referer);
 		}
 		
 		return mav;

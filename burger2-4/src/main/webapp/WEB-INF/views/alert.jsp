@@ -13,7 +13,8 @@
 	<script>
 		const cpath = '${ cpath }'
 		alert('${ msg }')
-		location.href=  cpath + '/${ url }'
+		location.href=  '${ url }'
+		//location.href=  cpath + '/${ url }'
 	</script>
 
 </body>

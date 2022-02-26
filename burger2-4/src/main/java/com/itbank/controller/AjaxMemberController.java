@@ -33,10 +33,10 @@ public class AjaxMemberController {
 		public HashMap<String, String> mailto(@PathVariable String email, HttpSession session) throws IOException{
 			System.out.println("인증번호 받은 이메일 : " +  email);
 			
-			String authNumber = mailService.getAuthNumber();
+			String authNumber = mailService.getAuthNumber();  //무작위 숫자 인증번호 받은 후
 			System.out.println("인증 번호 : " + authNumber);
 			
-			String hashNumber = hash.getHash(authNumber);
+			String hashNumber = hash.getHash(authNumber); // 해당 인증번호를 hash처리
 			System.out.println("인증 해시값 : " + hashNumber);
 			
 			// 세션은 클라이언트당 한개의 객체가 생성되니까 세션에 저장해두면 다른 클라이언트와 섞일 일이 없다

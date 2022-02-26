@@ -110,6 +110,8 @@
 		const form = document.querySelector('.join-main-form')
 		console.log(genderMail.checked)
 		console.log(genderFemail.checked)
+		
+		//중복확인
     	idchk.onclick = function(){
     		if(userid.value == ''){
     			alert('ID를 입력해주세요')
@@ -130,16 +132,38 @@
     			msg.style.fontWeight = 'bold'
     			if(json.color == 'blue') {
     				$('.username_input').attr("check_result", "success");
+    				$('#idChkBtn').hide();
+    				$('#idChkResult').show();
+    			}
+    			else { //다시 id를 재입력 후 중복확인 버튼을 누를 때 이미있는 id이면
+    				$('.username_input').attr("check_result", "fail");
+    				$('#idChkBtn').show();
+    				$('#idChkResult').show();
     			}
     			
-    			document.querySelctor('input[name="'+ json.focus +'"]').select()
+    			/* document.querySelctor('input[name="'+ json.focus +'"]').select() */
     		})
     	}
+		userid.addEventListener('change', function () {
+			 $('#idChkResult').hide();
+		      $('#idChkBtn').show();
+		      $('.username_input').attr("check_result", "fail");
+        });
+		
+		//전화번호 확인
 		phoneChk.onclick = function(){
     		if(phoneInput.value == ''){
     			alert('전화번호를 입력해주세요')
     			phoneInput.focus()
     			return
+    		}
+    		else {
+    			let regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+    		      if (regPhone.test(phoneInput.value) === false) {
+    		          alert('전화번호 양식에 맞지 않습니다.')
+    		          phoneInput.value = ''
+    		          phoneInput.focus()
+    		      }
     		}
     		const url = cpath + '/ajaxPhoneChk/' + phoneInput.value
     		const opt = {
@@ -148,22 +172,44 @@
     		fetch(url, opt)
     		.then(resp => resp.json())
     		.then(json => {
-    			console.log(json)
+    			console.log(json) //msg,color를 받는다.
     			
     			phoneResult.innerText = json.msg
     			phoneResult.style.color = json.color
     			phoneResult.style.fontWeight = 'bold'
     			if(json.color == 'blue') {
     				$('#phoneInput').attr("check_result", "success");
+    				$('#phoneChkBtn').hide();
+    				$('#phoneResult').show();
+    			}
+    			else { //다시 id를 재입력 후 중복확인 버튼을 누를 때 이미있는 id이면
+    				$('#phoneInput').attr("check_result", "fail");
+    				$('#phoneChkBtn').show();
+    				$('#phoneResult').show();
     			}
     		})
     	}
-    	
+		phoneInput.addEventListener('change', function () {
+			 $('#phoneResult').hide();
+		      $('#phoneChkBtn').show();
+		      $('#phoneInput').attr("check_result", "fail");
+       });
+		
+		//이메일확인
     	mainBtn.onclick = function() {
     		if(email.value == ''){
     			alert('이메일을 입력해주세요')
     			mailInput.focus()
     			return
+    		}
+    		else {
+    			let regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    			if (regEmail.test(email.value) == false) {
+  		          alert('이메일 양식에 맞지 않습니다.')
+  		          email.value = ''
+  		          email.focus()
+  		          return
+  		      }
     		}
     		
     		const url = cpath +'/mailto/' + email.value + '/'
@@ -264,9 +310,8 @@
     	$("#userpasschk").blur(passchk2) 
     	
     	
-    	
-    	
     </script>
+
 	<%@ include file ="../search-footer.jsp" %>
 </body>
 </html>

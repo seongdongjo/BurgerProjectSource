@@ -11,7 +11,7 @@
 	</ul>
 </div>
 <div class="search-menu">
-	<form action="${ cpath }/search"> <!-- get으로 요청 -->
+	<form action="${ cpath }/search"> <!-- get으로 요청, url뒤에 붙어서 다시 form으로넘어옴 -> param 사용가능 -->
 		<select name="type">
 			<option ${ param.type == 'burger' ? 'selected' : '' } value="burger">버거</option>
 			<option ${ param.type == 'mcmorning' ? 'selected' : '' } value="mcmorning">맥모닝</option>
@@ -119,7 +119,11 @@
 	const menuClose = document.getElementById('menuClose')
 	const searchContent = document.querySelector('.search-content')
 	
-	let cnt1 = Math.ceil(cnt / 6)
+   /* Math.ceil 은 소수값이 존재할 때 값을 올리는 역활을 하는 함수이며,
+   Math.floor 는 소수값이 존재할 때 소수값을 버리는 역활을 하는 함수이며,
+   Math.round 는 소수값에 따라 올리거나 버리는 역활을 하는 반올림 함수입니다. */
+   
+	let cnt1 = Math.ceil(cnt / 6) //무조건반올림
 	let cnt2 = 2
 	
 	menuOpen.onclick = function() {
@@ -130,9 +134,9 @@
 		if (cnt1 == cnt2) {
 			menuOpen.classList.add('hidden')
 			menuClose.classList.remove('hidden')
-			cnt2 = 1
+			cnt2 = 1 //원상복구
 		}
-		cnt2++
+		cnt2++ //원상복구
 	}
 
 	menuClose.onclick = function() {

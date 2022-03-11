@@ -8,7 +8,7 @@
             <li style="background-color: #ffc836">주소 입력</li>
             <li style="background-color: #264f36">정보 입력</li>
         </ul>
-        <form class="join-address-form" action="${ cpath }/join/step1">
+        <form class="join-address-form" action="${ cpath }/join/step1"> <!-- 동의체크 후 다음페이지로 -->
            <textarea style="width: 800px; height: 400px; resize: none;" readonly>${agreement }</textarea>
 			<p>
 				<label>

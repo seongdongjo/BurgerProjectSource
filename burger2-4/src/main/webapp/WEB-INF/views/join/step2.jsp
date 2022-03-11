@@ -8,11 +8,12 @@
             <li style="background-color: #ffc836">주소 입력</li>
             <li style="background-color: #264f36">정보 입력</li>
         </ul>
-        <div class="required-inputs"><span class="required-input">*</span>&nbsp;: 필수입력 </div>
+     	<div class="required-inputs"><span class="required-input">*</span>&nbsp;: 필수입력 </div>
         <form class="join-main-form" method="POST">
-        	
+        	<!-- 앞에서 입력한 주소를 넘기기위해 hidden처리 -->
         	<input type="hidden" name="address" value="${ param.addressName } ${ param.adressDetail }">
             <input type="hidden" name="usergrade" value="회원">
+            
             <p>ID <span class="required-input">*</span></p>
             <input class="username_input" type="text" name="userid" placeholder="ID를 입력해 주세요" check_result="fail" required autofocus autocomplete="off">
             <input id="idChkBtn" type="button" value="중복확인">
@@ -130,7 +131,7 @@
     			msg.innerText = json.msg
     			msg.style.color = json.color
     			msg.style.fontWeight = 'bold'
-    			if(json.color == 'blue') {
+    			if(json.color == 'blue') { //사용가능한 ID라면
     				$('.username_input').attr("check_result", "success");
     				$('#idChkBtn').hide();
     				$('#idChkResult').show();
@@ -219,7 +220,7 @@
     		fetch(url, opt)
     		.then(resp => resp.json())
     		.then(json => {
-    			console.log(json)
+    			console.log(json) //message, status
     			emailAuth.innerText = json.message
     			emailAuth.style.color = json.status == 'OK' ? 'blue' : 'red'
     		})

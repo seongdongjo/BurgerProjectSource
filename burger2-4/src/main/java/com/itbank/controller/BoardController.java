@@ -36,7 +36,7 @@ public class BoardController {
 	@Autowired private Paging paging;
 	
 	
-	@GetMapping("/news")
+	@GetMapping("/news")  //페이징버튼을 클릭할떄마다 실행, 새로운소식들어갈때 실행
 	public ModelAndView news(int page, @RequestParam(required = false) String search) {
 		ModelAndView mav = new ModelAndView("board/news");
 		
@@ -44,19 +44,15 @@ public class BoardController {
 		if(page == 0) {
 			page = 1;
 		}
-		System.out.println(page);
+
 		int offset = (page-1) * 5;
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("search", search);
-		map.put("offset", offset);
+		map.put("search", search); //search는 string
+		map.put("offset", offset); //offset은 int
 		
-		
-//		List<HashMap<String, Object>> list = bs.getNotice(offset);
 		List<HashMap<String, Object>> list = ns.searchList(map); //search, offset을 가지고간다.(search는 null가능)
 		List<HashMap<String, Object>> topList = ns.topList();
-		
-//		int total = ns.getTotal();
 		
 		int total = ns.searchTotal(search); //총 ?개의 게시글이 있습니다.
 		
@@ -93,7 +89,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	@PostMapping("/news")
+	@PostMapping("/news") //검색할때 실행
 	public ModelAndView news(@RequestParam String search, @RequestParam int page) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -147,13 +143,14 @@ public class BoardController {
 		
 		NoticeDTO dto = bs.getNews(seq);
 		
+		//조회수 증가를 위한 cntUpdate
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("seq", seq);
 		map.put("cnt", dto.getCnt());
 		
 		int newCnt = bs.cntUpdate(map);
 		
-		NoticeDTO dto1 = bs.getNews(seq);
+		NoticeDTO dto1 = bs.getNews(seq); //조회수 증가한 후 다시 dto가져오기
 		
 		mav.addObject("dto", dto1);
 		
@@ -173,7 +170,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println("dto.getTitle : " + dto.getContent());
-		System.out.println("dto.getDate : " + dto.getRegDate());
+		System.out.println("dto.getDate : " + dto.getReqDate());
 		
 		System.out.println("dto.getUploadFile : " + dto.getUploadFile());
 //		System.out.println(dto.getUploadFile().getOriginalFilename());

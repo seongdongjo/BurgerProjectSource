@@ -65,12 +65,13 @@ public class AjaxController {
 	// newsDetail 
 	@GetMapping("/btnNewsDetail/{num}")
 	public NoticeDTO nextNews(@PathVariable int num) {
+		System.out.println("여기는오니?");
 		NoticeDTO dto = ns.getNotice(num);
-		System.out.println(dto.getRegDate());
-		Date d1 = new Date(dto.getRegDate().getTime());
+		System.out.println("여기가널이니? " + dto.getReqDate());
+		Date d1 = new Date(dto.getReqDate().getTime());
 		System.out.println(d1);
-		dto.setRegDate(d1);
-		System.out.println(dto.getRegDate());
+		dto.setReqDate(d1);
+		System.out.println(dto.getReqDate());
 		return dto; 
 	}
 	

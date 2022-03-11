@@ -31,8 +31,8 @@
 	        		<c:forEach var="tls" items="${ topList }">
 	        			<div class="board-notice-list">
 		        			<div class="board-notice-icon"><img src="${ cpath }/resources/src/board/notice.png"></div>
-		        			<strong class="board-notice-title"><a href="${ cpath }/board/newsDetail/${tls.NOTICE_SEQ}">${ tls.TITLE }</a></strong>
-		        			<strong class="board-notice-date"><fmt:formatDate value="${tls.REGDATE}" pattern="yyyy-MM-dd"/></strong>
+		        			<strong class="board-notice-title"><a href="${ cpath }/board/newsDetail/${tls.NOTICE_SEQ}">${ tls.TITLE }</a></strong> <!-- getmapping으로 넘어간다 -->
+		        			<strong class="board-notice-date"><fmt:formatDate value="${tls.REQDATE}" pattern="yyyy-MM-dd"/></strong>
 	        			</div>
 	        		</c:forEach>
         		</div>
@@ -42,12 +42,10 @@
 		        	<c:forEach var="ls" items="${ list }"> 
 						<div class="board-post-list">
 				        	<strong class="board-post-number">${ ls.NOTICE_SEQ }</strong>
-				        	<strong class="board-post-title" ><a href="${ cpath }/board/newsDetail/${ls.NOTICE_SEQ}">${ ls.TITLE }</a></strong>
-				        	<strong class="board-post-date"><fmt:formatDate value="${ls.REGDATE}" pattern="yyyy-MM-dd"/></strong>
+				        	<strong class="board-post-title" ><a href="${ cpath }/board/newsDetail/${ls.NOTICE_SEQ}">${ ls.TITLE }</a></strong> <!-- getmapping으로 넘어간다 -->
+				        	<strong class="board-post-date"><fmt:formatDate value="${ls.REQDATE}" pattern="yyyy-MM-dd"/></strong>
 		        		</div>
 		        	</c:forEach>
-		        
-	        
         		</div>
         	</div>
         	<c:if test="${not empty adminlogin}">

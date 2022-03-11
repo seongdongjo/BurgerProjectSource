@@ -72,7 +72,7 @@
             oncomplete: function(data) { //선택시 입력값 세팅
                 document.getElementById("addressInput").value = data.address; // 주소 넣기
                 
-                resultAddress.innerText = document.getElementById("addressInput").value
+                resultAddress.innerText = document.getElementById("addressInput").value //주소를 최종주소에 넣고 아래 상세주소를 입력받을수 있도록 커서
                 
                 document.getElementById("detailAddressInput").focus(); //상세입력 포커싱
             }
@@ -80,7 +80,7 @@
     });
     
     	
-    	$('#detailAddressInput').blur(function(){
+    	$('#detailAddressInput').blur(function(){ //detailAddressInput의 포커스가 해제가 되면
     		resultAddress.innerText +=  (' ' + $('#detailAddressInput').val())
     	})
 	</script>

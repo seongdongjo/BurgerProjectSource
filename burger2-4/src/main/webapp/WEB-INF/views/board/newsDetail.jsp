@@ -21,7 +21,7 @@
 		<div class="detail-title">${dto.title }</div>
 		<div class="detail-num">
 <%-- 			<fmt:formatDate var="formatRegDate" value="${ dto.regDate }" pattern="yyyy-MM-dd"/> --%>
-			<div class="detail-regDate">${ dto.regDate }</div>
+			<div class="detail-regDate">${ dto.reqDate }</div>
 			<div class="detail-cnt">&nbsp;<span>|</span> &nbsp;${dto.cnt }</div>
 		</div>
 	</div>
@@ -42,7 +42,7 @@
 	
 	<hr class="detail-hr1">
 	<div class="btn-list1">
-		<button class="prev-btn"></button>
+		<button class="prev-btn"></button> <!-- 이전, 다음 글로 이동 -->
 		<a href="${ cpath }/board/news?page=1"><button class="news-list-btn">목록보기</button></a>
 		<button class="next-btn"></button>
 	</div>
@@ -100,7 +100,8 @@
 	
 	nextBtn.onclick = function(event){
 		event.preventDefault()
-		const url = cpath + '/btnNewsDetail/' + (seq + 1)
+		console.log("실행")
+		const url = cpath + '/btnNewsDetail/' + (seq - 1)
 		const opt = {
 			method : 'get'
 		}
@@ -113,7 +114,7 @@
 			detailTitle.innerText = ''
 			detailTitle.innerText += json.title
 			detailRegDate.innerText = ''
-			detailRegDate.innerText += (json.regDate + ' | ')
+			detailRegDate.innerText += (json.reqDate + ' | ')
 
 			detailCnt.innerText = ''
 			detailCnt.innerText += json.cnt
@@ -130,7 +131,7 @@
 	
 	prevBtn.onclick = function(event){
 		event.preventDefault()
-		const url = cpath + '/btnNewsDetail/' + (seq-1)
+		const url = cpath + '/btnNewsDetail/' + (seq+1)
 		const opt = {
 			method : 'get'
 		}
@@ -144,7 +145,7 @@
 			detailTitle.innerText = ''
 			detailTitle.innerText += json.title
 			detailRegDate.innerText = ''
-			detailRegDate.innerText += (json.regDate + ' | ') 
+			detailRegDate.innerText += (json.reqDate + ' | ') 
 			detailCnt.innerText = ''
 			detailCnt.innerText += json.cnt
 // 			detailContent.innerText = ''

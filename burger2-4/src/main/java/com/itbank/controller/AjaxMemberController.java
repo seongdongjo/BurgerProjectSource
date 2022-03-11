@@ -65,7 +65,7 @@ public class AjaxMemberController {
 			
 			// result가 인증번호
 			
-			MemberDTO dto = memberService.findByEmail(email);
+			MemberDTO dto = memberService.findByEmail(email); //이메일이 중복인지 확인하기 위해
 			
 			HashMap<String, String> ret = new HashMap<String, String>();
 			
@@ -86,7 +86,7 @@ public class AjaxMemberController {
 		}
 		
 		
-		@GetMapping("/ajaxAuth/{userNumber}")
+		@GetMapping("/ajaxAuth/{userNumber}") //사용자가 입력한 인증번호
 		public HashMap<String, String> getAuthResult(@PathVariable String userNumber, HttpSession session){
 			
 //			String userNumber1 = String.valueOf(userNumber);

@@ -20,7 +20,7 @@ public class NoticeDTO {
 
 	private int notice_seq, cnt;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
-	private Date regDate;
+	private Date reqDate;
 	private String title, writer, content, flag;
 	private MultipartFile uploadFile;
 	private String fileName;
@@ -31,9 +31,7 @@ public class NoticeDTO {
 	public int getCnt() {
 		return cnt;
 	}
-	public Date getRegDate() {
-		return regDate;
-	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -58,8 +56,12 @@ public class NoticeDTO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	
+	public Date getReqDate() {
+		return reqDate;
+	}
+	public void setReqDate(Date reqDate) {
+		this.reqDate = reqDate;
 	}
 	public void setTitle(String title) {
 		this.title = title;

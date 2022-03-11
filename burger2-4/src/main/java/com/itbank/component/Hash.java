@@ -28,7 +28,6 @@ public class Hash {
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("해시 알고리즘이 없나여?");
 		}
 		return null;
 		

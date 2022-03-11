@@ -21,8 +21,8 @@ public class Paging {
 		return begin;
 	}
 	
-	public int end (int pageCount) { //pageCount = 페이징 갯수
-		end = pageCount < begin + 4 ? pageCount : begin+4;
+	public int end (int pageCount) { //pageCount = 페이징버튼 갯수
+		end = pageCount < begin + 4 ? pageCount : begin+4; //begin이 1이면 end는 5, begin이 6이면 end 10
 		return end;
 	}
 	

@@ -140,29 +140,29 @@ public class AdminController {
 	public ModelAndView loginAdmin(AdminDTO dto, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		
-		String auto = request.getParameter("auto");
+		String auto = request.getParameter("auto"); //자동로그인 체크했는가
 		System.out.println("auto :" + auto);
 		
 		if(auto != null) {
-			Cookie autoLoginAdmin = new Cookie("JSESSIONID", session.getId());
-			autoLoginAdmin.setMaxAge(7200);
-			autoLoginAdmin.setPath("/burger2-4");
-			response.addCookie(autoLoginAdmin);
+			Cookie autoLoginAdmin = new Cookie("JSESSIONID", session.getId()); //쿠키생성
+			autoLoginAdmin.setMaxAge(7200); //생성한 쿠키의 만료시간
+			autoLoginAdmin.setPath("/burger2-4"); 
+			response.addCookie(autoLoginAdmin); //웹브라우저에게 쿠키를 보냄.
 		}
-		dto.setAdminpw(hash.getHash(dto.getAdminpw()));
-		
-		AdminDTO adminlogin = ms.loginAdmin(dto);
+		dto.setAdminpw(hash.getHash(dto.getAdminpw())); //입력받은 패스워드를 해시처리하여 다시 dto에 저장
+		 
+		AdminDTO adminlogin = ms.loginAdmin(dto); //해시처리한 비밀번호와 디비에 있는 해시값과 비교
 //		System.out.println(adminlogin.getAdminid());
 		
 		session.setAttribute("adminlogin", adminlogin);
 		
-		if(adminlogin != null) {
-			mav.setViewName("admin/adminPage");
+		if(adminlogin != null) { //정상적으로 로그인되있는지
+			mav.setViewName("admin/adminPage"); //관리자 페이지로
 		}
 		
 		else {
 			mav.setViewName("alert");
-			mav.addObject("url", "admin/loginAdmin");
+			mav.addObject("url", "admin/loginAdmin"); //다시 관리자 로그인으로
 			mav.addObject("msg", "로그인에 실패하였습니다");
 		}
 		return mav;

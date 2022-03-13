@@ -21,11 +21,14 @@
 	        	<div><a href="${ cpath }/board/qnaWrite"><button class="QnA-write">Q&A 작성하기</button></a></div>
 	        	<div>
 	        	<c:if test="${ not empty login }">
-<!-- 	        	<form method="post"> -->
-	        		<input class="hidden" type="number" name="page" value="1">
-	        		<input type="hidden" name="writer" value="${ login.userid }">
-	        		<button class="QnA-search">나의 Q&A 조회</button>
-<!-- 	        	</form> -->
+ 	        		<form>
+		        		<input class="hidden" type="number" name="page" value="1">
+	<%-- 	        	<input type="hidden" name="writer" value="${ login.userid }"> --%>
+		        		<!-- <button class="QnA-search">나의 Q&A 조회</button> -->
+		        		<input class="hidden" type="number" name="mycheck" value="1">
+		        		<input class="hidden" name="result" value="${param.result }">
+		        		<input class="QnA-search" type="submit" value="나의 Q&A 조회">
+ 	        		</form>
 	        	</c:if>
 	        	</div>
         	</div>
@@ -40,8 +43,8 @@
 	        	<div class="QnA-result">
 	        		<form>
 		        		<select name="result">
-		        			<option>답변상태</option>
-		        			<option ${param.result == 'n' ? 'selected' : '' } value="n">미답변</option>
+		        			<option value="">답변상태</option>
+		        			<option ${param.result == 'n' ? 'selected' : '' } value="n">미답변</option>  <!-- db에 result컬럼이 y,n이다 -->
 		        			<option ${param.result == 'y' ? 'selected' : '' } value="y">답변완료</option>
 		        		</select>
 		        		<input class="hidden" type="number" name="page" value="1">

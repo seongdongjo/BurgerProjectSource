@@ -366,6 +366,16 @@ input[name="onOff"]:checked + #boxLabel span {
 	cursor: pointer;
 }
 
+.QnA-search {
+	border : 0;
+	background-color: #264a36;
+	color : white;
+	width : 120px;
+	height:  40px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
 .QnA-top > .QnA-top-right{
 	display: flex;
 }

@@ -129,7 +129,7 @@ public class JoinController {
 	
 	@PostMapping("/join/adminJoin")
 	public ModelAndView adminJoin(AdminDTO dto) {
-		ModelAndView mav = new ModelAndView("join/adminJoin");
+		ModelAndView mav = new ModelAndView();
 		
 		String hashpw = hash.getHash(dto.getAdminpw());
 		dto.setAdminpw(hashpw);

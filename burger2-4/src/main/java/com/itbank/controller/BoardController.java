@@ -1,5 +1,6 @@
 package com.itbank.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -190,17 +191,27 @@ public class BoardController {
 		return mav;
 	}
 	
-	
-	@GetMapping("/question")
-	public ModelAndView question(int page, @RequestParam(required = false) String result) {
+	@GetMapping("/question") //문의사항 클릭 시 
+	public ModelAndView question(int page, @RequestParam(required = false) String result, HttpSession session, Integer mycheck) { //int에서 null체크할려면 Intger로 바꿔야됨
+		int total=0;
 		ModelAndView mav = new ModelAndView();
+		MemberDTO dto =  (MemberDTO)session.getAttribute("login");
+		HashMap<String, String> resultmap = new HashMap<String, String>();
+		List<HashMap<String, Object>> qlist = new ArrayList<HashMap<String, Object>>();
 		
 		if(page == 0) {
 			page = 1;
 		}
-		List<QnaBoardDTO> list = bs.qnaList();
-
-		int total = bs.qnaCount(result);
+		
+		if(mycheck == null ) { //문의사항으로 들어오거나, 답변상태 옆에있는 검색을 클릭해서 들어올 때
+			resultmap.put("result", result);
+			total = bs.qnaCount(resultmap);
+		}
+		else {
+			resultmap.put("userid", dto.getUserid());
+			resultmap.put("result", result);
+			total = bs.qnaCount(resultmap); //result가 null이든 아니든 iftest로 구분(xml에서)
+		}
 		
 		int pageCount = (total / 10);
 		pageCount = total % 10 == 0 ? pageCount : pageCount + 1 ;
@@ -208,11 +219,18 @@ public class BoardController {
 		int offset = (page-1) * 10;
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("offset", offset);
-		map.put("result", result);
+		map.put("offset", offset); //int
+		map.put("result", result); //string
+		if(dto != null) {
+			map.put("userid", dto.getUserid()); //String
+		}
 		
-		List<HashMap<String, Object>> qlist = bs.qnaList2(map);
-		
+		if(mycheck == null) {
+			qlist = bs.qnaList2(map);
+		}
+		else {
+			qlist = bs.qnaList1(map);
+		}
 		int section = paging.section(page);		
 		int begin = paging.begin(section);
 		int end = paging.end(pageCount);
@@ -239,57 +257,6 @@ public class BoardController {
 		mav.addObject("prev", prev);
 		mav.addObject("next", next);
 		return mav;
-	}
-	
-	@PostMapping("/question")
-	public ModelAndView postQuestion(int page, @RequestParam String writer) {
-		ModelAndView mav = new ModelAndView();
-		
-		if(page == 0) {
-			page = 1;
-		}
-		int total = bs.userCount(writer);
-		
-
-		int pageCount = (total / 10);
-		pageCount = total % 10 == 0 ? pageCount : pageCount + 1 ;
-
-		int offset = (page-1) * 10;
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("offset", offset);
-		map.put("writer", writer);
-		
-		List<QnaBoardDTO> userQnaList = bs.userQnaList(map);
-		
-		int section = paging.section(page);		
-		int begin = paging.begin(section);
-		int end = paging.end(pageCount);
-		boolean prev = paging.prev(section);
-		boolean next = paging.next(pageCount, end);
-		
-		System.out.println("page : " + page);
-		System.out.println("total : " + total);
-		System.out.println("pageCount : " + pageCount);
-		System.out.println("offset : " + offset);
-		System.out.println("section : " + section);
-		System.out.println("begin : " + begin);
-		System.out.println("end : " + end);
-		System.out.println("prev : " + prev);
-		System.out.println("next : " + next);
-		
-		
-	
-		
-		mav.addObject("list", userQnaList);
-		mav.addObject("section", section);
-		mav.addObject("begin", begin);
-		mav.addObject("end", end);
-		mav.addObject("prev", prev);
-		mav.addObject("next", next);
-		return mav;
-		
-		
 	}
 	
 	// qnaDetail
@@ -343,7 +310,7 @@ public class BoardController {
 		if(row == 1) {
 			mav.setViewName("alert");
 			mav.addObject("msg", "작성완료");
-			mav.addObject("url", "board/question?page=1");
+			mav.addObject("url", "question?page=1");
 		}
 		else {
 			mav.setViewName("alert");

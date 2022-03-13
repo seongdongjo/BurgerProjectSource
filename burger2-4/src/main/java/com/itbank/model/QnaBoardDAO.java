@@ -12,6 +12,9 @@ public interface QnaBoardDAO {
 
 	@Select("select * from qnaboard_table")
 	List<QnaBoardDTO> qnaList();
+	
+	@Select("select * from qnaboard_table where writer = #{ userid }")
+	List<QnaBoardDTO> qnaLoginList(String userid);
 
 	@Select("select * from qnaboard_table "
 			+ "where result = 'n' "
@@ -23,7 +26,7 @@ public interface QnaBoardDAO {
 	@Update("update qnaboard_table set result = 'y' where qna_seq = #{ seq }")
 	int resultUpdate(int seq);
 
-	int qnaCount(String result);
+	int qnaCount(HashMap<String, String> map);
 
 	List<HashMap<String, Object>> qnaList2(HashMap<String, Object> map);
 
@@ -36,5 +39,7 @@ public interface QnaBoardDAO {
 	int userCount(String writer);
 
 	List<QnaBoardDTO> userQnaList(HashMap<String, Object> map);
+
+	List<HashMap<String, Object>> qnaList1(HashMap<String, Object> map);
 
 }

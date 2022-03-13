@@ -535,6 +535,8 @@ header {
 	height: 220px;
 	margin-top: 10px;
 	background: #292929;
+	position: fixed;
+	bottom: 0;
 }
 
 .footer-inner {

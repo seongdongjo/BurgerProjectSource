@@ -59,9 +59,9 @@ public class BoardService {
 		return qdao.resultUpdate(seq);
 	}
 
-	public int qnaCount(String result) {
+	public int qnaCount(HashMap<String, String> map) {
 		
-		return qdao.qnaCount(result);
+		return qdao.qnaCount(map);
 	}
 
 	public List<HashMap<String, Object>> qnaList2(HashMap<String, Object> map) {
@@ -94,6 +94,14 @@ public class BoardService {
 	// 회원 댓글만 보기
 	public List<QnaBoardDTO> userQnaList(HashMap<String, Object> map) {
 		return qdao.userQnaList(map);
+	}
+
+	public List<QnaBoardDTO> qnaLoginList(String userid) {
+		return qdao.qnaLoginList(userid);
+	}
+
+	public List<HashMap<String, Object>> qnaList1(HashMap<String, Object> map) {
+		return qdao.qnaList1(map);
 	}
 
 	

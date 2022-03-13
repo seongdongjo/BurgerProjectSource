@@ -92,23 +92,19 @@
 	 	const replyForm = document.querySelector('.reply-form')
 	 	const closeModal = document.querySelectorAll('.close-form')
 	 	const overlay = document.querySelector('.overlay1')
-		const modal = document.querySelector('.modal1')
+		const modal = document.querySelectorAll('.modal1')
 	 	const modalContent = document.querySelector('.modal-content1')
 		console.log(innerTitle)
 	 	console.log(closeModal)
 	 	innerTitle.forEach(e => {
 	 		e.onclick = function(){
-// 	 			replyForm.classList.remove('hidden')
-				modal.classList.remove('hidden')
-// 				modal.style.display = 'block'
+				e.childNodes[1].classList.remove('hidden')
 	 		}
 	 	})
 	 	closeModal.forEach(e => {
 	 		e.onclick = function(){
-	 			console.log('closeModal')
-	 			overlay.classList.add('hidden')
-	 			modal.style.display = 'none'
-	 			modalContent.classList.add('.hidden')
+	 			event.stopPropagation();
+	 			$(e).closest('.modal1').addClass('hidden')
 	 		}
 	 	})
 	 	

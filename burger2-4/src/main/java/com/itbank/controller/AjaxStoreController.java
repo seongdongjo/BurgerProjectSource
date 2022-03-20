@@ -40,17 +40,17 @@ public class AjaxStoreController {
 		System.out.println(list);
 		int page = (int)page1;
 
-		int total = ss.selectCount(cate1);
+		int total = ss.selectCount(cate1); //해당하는 카테고리가 y인 데이터의 개수
 
-		int pageCount = (total / 5);
+		int pageCount = (total / 5); //예를들어 총 16개면 4페이지가 나온다(아래삼항연산자로)
 
 		pageCount = total % 5 == 0 ? pageCount : pageCount + 1;
 
-		int section = paging.section(page);
+		int section = paging.section(page); //page가 1일때는 section = ( page - 1 ) / 5; 로 인해서 section은 0이다
 
-		int begin = paging.begin(section);
+		int begin = paging.begin(section); //begin = (section * 5) + 1;  section이 늘어남에따라 begin은 5씩늘어난다
 
-		int end = paging.end(pageCount);
+		int end = paging.end(pageCount); 
 
 		boolean prev = paging.prev(section);
 

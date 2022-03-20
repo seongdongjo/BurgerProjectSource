@@ -21,6 +21,8 @@
 <script src="${cpath }/resources/js/totalprice.js"></script>
 <script src="${cpath }/resources/js/payment.js"></script>
 <script src="${cpath }/resources/js/modalfunction.js"></script>
+	
+	<!-- size변경 modal -->
     <div class="modalback">
     	<div class="modalcontent" style="width: 850px;">
     	  <div style="display: flex;">
@@ -49,6 +51,8 @@
     	  </div>
     	</div>
     </div>
+    
+    <!-- 상단 메뉴카테고리  -->
 		<ul class="menuparent">
 			<li><a href="${ cpath }"><img class="main-logo" src="data:image/png;base64,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" style="width: 65px; height: 50px;"></a></li>
 	        <li class="selectMenu showColor" data-cate="mac">맥모닝</li>
@@ -60,6 +64,7 @@
 	        <li class="selectMenu" data-cate="dessert">디저트</li>
 	        <li class="selectMenu" data-cate="mcafe">맥카페</li>
 	    </ul>
+	<!-- 메뉴 이미지 띄우는 부분 -->
     <div class="show">
     	<div class="show-frame"></div>
     	<button class="slide-before"><</button>
@@ -124,10 +129,10 @@
 	   const surangspan = document.querySelector('.surangspan')
 	   const inputcheck1 = document.getElementById('input_check1')
 	   
-	   window.onload = macImageHandler
+	   window.onload = macImageHandler //처음 로딩 시 맥모닝 이미지로 띄우기
 	   menuSelectList.forEach(menu=>{
 		   menu.onclick = function(event) {
-			  menuSelectList.forEach(menu=>{
+			  menuSelectList.forEach(menu=>{ //showColor를 없애기 위한 forEach문
 				  menu.classList.remove("showColor")
 			  })
 			  event.target.classList.add("showColor")
@@ -173,16 +178,16 @@
 		   if(clientrqform.classList.contains('hidden')) clientrqform.classList.remove('hidden')
 	   }
 	   
-	   sizeinput.onclick = function(event) {
+	   sizeinput.onclick = function(event) { //모달창에서 버거사이즈 체크박스를 클릭하면
 		   let count = parseInt(modalcount.childNodes[0].childNodes[1].innerHTML)
-		   let sizeup = inputcheck1.checked
+		   let sizeup = inputcheck1.checked //체크되있는지 확인 
 		   let price = parseInt(modalprice.childNodes[0].innerHTML.split(' ')[0].replace(/,/g,""))
 		   console.log('참이니: ' + event.target.classList)
 		   if(event.target.classList=='sizeinput' && sizeup == false) { //체크를 해제 했을 때 기존값이 사라지고 700원이 감소한값
 			  console.log('해제')
 			   //1. 수량이 3일 떼 체크를 해제하면 price / count  
 			   modalprice.childNodes[0].innerHTML = ((price / count)-700).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' 원' 
-			   modalcount.childNodes[0].childNodes[1].innerHTML = 1
+			   modalcount.childNodes[0].childNodes[1].innerHTML = 1 //수량을 1로
 		   }
 		   if(event.target.classList=='sizeinput' && sizeup == true) { //체크를 했을 때 기존값이 사라지고 700원이 감소한값
 			   console.log('체크')

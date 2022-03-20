@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.itbank.admin.AdminDTO;
 import com.itbank.component.Hash;
 import com.itbank.component.Paging;
-import com.itbank.component.Timer;
+//import com.itbank.component.Timer;
 import com.itbank.member.MemberDTO;
 import com.itbank.model.OrderListDTO;
 import com.itbank.service.MemberService;
@@ -31,7 +31,7 @@ public class MyPageController {
 	@Autowired private OrderService os;
 	@Autowired private MemberService ms;
 	@Autowired private Hash hash;
-	@Autowired private Timer timer;
+	//@Autowired private Timer timer;
 	@Autowired private Paging paging;
 	
 	@GetMapping("/myPage")
@@ -40,21 +40,19 @@ public class MyPageController {
 			String userid = ((MemberDTO)session.getAttribute("login")).getUserid();
 			
 			System.out.println(userid);
-	      
+			
 			OrderListDTO orderList = os.orderlistPage(userid);
-						
-			System.out.println(orderList);
 			
-			
+			//String timer = timer.min(60);
+			//System.out.println(orderList.getOrderSeq());
 			if(orderList != null) {
-				mav.addObject("orderList", orderList);	
+				mav.addObject("orderList", orderList);
 			}
 			else {
 				mav.addObject("msg", "주문한 상품이 없습니다");
 			}
 	      return mav;
 	   }
-	
 
 	
 	

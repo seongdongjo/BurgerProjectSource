@@ -34,7 +34,7 @@ public class FileService {
 //	}
 	
 	// 전송에 필요한 정보
-	private final String serverIP = "183.104.165.82";
+	private final String serverIP = "222.97.171.243";
 	private final int serverPort = 22;
 	private final String serverUser = "root";
 	private final String serverPass = "root";
@@ -46,7 +46,7 @@ public class FileService {
 		
 		// 1. 업로드 받은 파일을 임시파일로 웹서버에 생성
 		MultipartFile file = dto.getUploadFile();
-		
+		//파일이름 만들기
 		File dest = new File(today + file.getOriginalFilename());
 		
 		file.transferTo(dest);

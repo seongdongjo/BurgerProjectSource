@@ -74,7 +74,7 @@ function getsizedom(event) {
 	tag +=  `</div>`		
 	modalcontent.innerHTML += tag*/
 
-function inputorderHandler(event) {
+function inputorderHandler(event) { //담기버튼누르면
 	console.log('핸들러야')
 	const price = '￦ ' +modalprice.childNodes[0].innerHTML.split(' ')[0] //'2000 원'을 공백기준으로 자르기
 	const count = parseInt(modalcount.childNodes[0].childNodes[1].innerHTML) //모달에 찍힌 수량
@@ -90,8 +90,8 @@ function inputorderHandler(event) {
 	modalback.style.display = 'none'
 	modalback.style.marginTop = '-1000px';
 	modalback.classList.remove('slide-down')
-	modalImageOrderDom(price,count,name)
-	totalfunction2()
+	modalImageOrderDom(price,count,name) //목록에 담기위해
+	totalfunction2() //결제가격과 수량을 위해
 }
 
 function deletemodalHandler(event) {

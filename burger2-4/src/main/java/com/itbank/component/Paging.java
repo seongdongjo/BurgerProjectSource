@@ -26,8 +26,8 @@ public class Paging {
 		return end;
 	}
 	
-	public boolean prev (int section) { //버튼
-		prev = (section != 0);
+	public boolean prev (int section) { //버튼(true,flase로 반환)
+		prev = (section != 0); //section이 0이라면 이전버튼이 없다
 		return prev;
 	}
 	

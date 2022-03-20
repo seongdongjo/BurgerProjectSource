@@ -53,8 +53,8 @@ public class AdminController {
 		int pageCount = (total / 5);
 		pageCount = total % 5 == 0 ? pageCount : pageCount + 1 ;
 
-		int section = paging.section(page);		
-		int begin = paging.begin(section);
+		int section = paging.section(page);	// 0~4page = 0section, 5~9page = 1section, 10~14page = 2section	
+		int begin = paging.begin(section); //0section 1begin, 1section 6begin, 2section 10begin
 		int end = paging.end(pageCount);
 		boolean prev = paging.prev(section);
 		boolean next = paging.next(pageCount, end);
@@ -94,7 +94,7 @@ public class AdminController {
 		System.out.println(row);
 		
 		if(row == 1) {
-			int update = bs.qnaResult(seq);
+			int update = bs.qnaResult(seq); //답변했으니 칼럼을 y로 바꾸는 작업
 //			if(update == 1) {
 //				
 //			}

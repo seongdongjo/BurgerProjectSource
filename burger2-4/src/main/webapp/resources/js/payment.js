@@ -9,14 +9,14 @@ function paymentHandler(event) {
 	let menuname = ''
 	let price = ''
 	let gubun = ' // '
-	let total = payment.innerHTML.split(" ")[0]
-	let parent_orderArray = parent_order.childNodes
-	let count = parseInt(parent_orderArray[0].childNodes[3].innerText) //상품개수
+	let total = payment.innerHTML.split(" ")[0] //총결제금액 받아오기
+	let parent_orderArray = parent_order.childNodes //주문목록 가져오기(한줄한줄)
+	let count = parseInt(parent_orderArray[0].childNodes[3].innerText) //상품개수(맨위를 기준으로 몇개외~ 하기위해서 맨위의 개수를 가져온다)
 	//몇개 외 몇개 주문을 위한 조건문
-	let totalcount = parseInt(productcount1.innerText)
+	let totalcount = parseInt(productcount1.innerText) //총 수량
 	console.log(count)
 	if(count == 1) {  //1개 외 ~
-		paycount = totalcount - 1
+		//paycount = totalcount - 1
 	}
 	else {  // x개 외 totalcount - x 개
 		paycount = totalcount - count
@@ -24,7 +24,7 @@ function paymentHandler(event) {
 //	console.log(clientcomment)
 	//주문목록의 메뉴이름, 가격을  ' // ' 구분자로 가져와서 문자열에 저장
 	for(let i = 0; i<parent_orderArray.length; i++) {
-		if(i == parent_orderArray.length-1) {
+		if(i == parent_orderArray.length-1) { //마지막에는 구분자 빼고
 			menuname += parent_orderArray[i].childNodes[1].innerText
 			price += parent_orderArray[i].childNodes[5].innerText
 		}
@@ -42,12 +42,12 @@ function paymentHandler(event) {
 	else {
 		paymenuname = menuArr[0] + count + ' 개 외 ' + paycount + ' 개'
 	}
-	ob = {
+	ob = { //카카오페이창에 보여지는
 			'menuname' : paymenuname,
 			'total' : total,
 	}
 	
-	dbob = {
+	dbob = { //DB에 넣을 값
 			'menus' : menuname,
 			'price' : price,
 			'count' : totalcount,
@@ -87,7 +87,7 @@ function paymentHandler(event) {
 		buyer_postcode: '123-456',
 		}, function (rsp) {		// callback함수
 			console.log(rsp);
-		if (rsp.success) {
+		if (rsp.success) { //결제성공시
 			var msg = '결제가 완료되었습니다.';
 			msg += '결제 금액 : ' + rsp.paid_amount;
 			// success.submit();

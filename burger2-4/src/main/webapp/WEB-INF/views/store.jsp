@@ -121,13 +121,15 @@
 
 <script>
 	const cpath = '${ cpath }'
+	//아래 4개는 테이블 부분
 	const addressName = document.querySelector('.store-address-name')
 	const storeTel = document.querySelector('.store-tel')
 	const storeOpen = document.querySelector('.store-open')
 	const storeService = document.querySelector('.store-service')
-	const searchBtn = document.getElementById('searchBtn')
-	const address = document.getElementById('address')
-	const storePaging = document.querySelector('.store-paging')
+	
+	const searchBtn = document.getElementById('searchBtn') //주소검색 버튼
+	const address = document.getElementById('address') //주소값
+	const storePaging = document.querySelector('.store-paging') 
 	
 	console.log(storePaging) 
 	
@@ -146,7 +148,7 @@
 			var geocoder = new kakao.maps.services.Geocoder();
 			
 			let target = event.target
-			if(target != 'DIV'){ 
+			if(target != 'DIV'){ //이미지를 클릭했으면 부모인 div까지올라간다.(dataset때문에)
 				target = target.parentNode
 				const cate = target.dataset.cate
 				console.log(cate)
@@ -195,7 +197,7 @@
 						        
 						        console.log(lat) //5번반복(페이징때문에)
 						        console.log(lng) //5번반복(페이징때문에)
-						        getAddr(lat, lng); //함수전달
+/* 						        getAddr(lat, lng); //함수전달
 						        
 						        function getAddr(lat, lng){
 						        	let geocoder = new kakao.maps.services.Geocoder();
@@ -209,7 +211,7 @@
 						        		}
 						        	}
 						        	geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-						        }
+						        } */
 						        
 						        
 						        // 결과값으로 받은 위치를 마커로 표시합니다
@@ -255,14 +257,14 @@
 					})
 					
 					
-					if(json.prev == true){
+					if(json.prev == true){ //이전버튼이있으면
 						pagingDom1 += '<button class="p-Btn" data-page="' + (json.begin -1) + '">' + '이전' + '</button>'
 					}
 					else{
 						pagingDom1 += ''
 					}
 					
-					for(let i = json.begin; i <= json.end; i++){
+					for(let i = json.begin; i <= json.end; i++){ //begin에서 end만큼 반복
 						pagingDom2 += '<button class="c-Btn" data-page="'+ i +'">' + i + '</button>'
 					}
 					
@@ -295,7 +297,7 @@
 					$('.c-Btn').on('click', function(e) {
 						e.preventDefault()
 						console.log(e.target.dataset.page)
-						let page = parseInt(e.target.dataset.page)
+						let page = parseInt(e.target.dataset.page) //내가 클릭한 페이지
 						let offset = ( page - 1) * 5
 						let cate = json.cate
 						
@@ -592,7 +594,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 //지도를 생성합니다
 var map = new kakao.maps.Map(mapContainer, mapOption) 
     
-
+//특정매장 검색을 했을 때는 페이징이 없다.
 searchBtn.onclick = function(){
 	// 주소-좌표 변환 객체를 생성합니다
 	var geocoder = new kakao.maps.services.Geocoder();

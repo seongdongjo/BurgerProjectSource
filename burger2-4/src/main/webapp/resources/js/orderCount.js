@@ -83,7 +83,7 @@ function countHandler(event) {  // event는  + , - 버튼
 }
             //console.log(total)
 
-function imageOrderDom(event) {
+function imageOrderDom(event) { //목록에 담기
 	const imageOrderBtn = document.querySelectorAll('.imageOrderBtn')
     const div = document.createElement('div')
     div.classList.add('child_order')
@@ -129,7 +129,7 @@ function imageOrderDom(event) {
 	parent_order.scroll({top: parent_order.scrollHeight, behavior: `smooth`})
 }
 
-function modalImageOrderDom(price,count,name) {
+function modalImageOrderDom(price,count,name) { //사이즈로 담을 때 목록담기
 	const imageOrderBtn = document.querySelectorAll('.imageOrderBtn')
     const div = document.createElement('div')
     div.classList.add('child_order')

@@ -86,7 +86,7 @@
 	$('.main-slide > .side-btns > div').click(slider) //silder함수실행(main.js)
 
 	window.addEventListener('load', function(){
-		setMoveInterval()
+		setMoveInterval() //슬라이더 주기 함수 호출  main.js
 	})
 	
 	// 모달 함수 -> main.js

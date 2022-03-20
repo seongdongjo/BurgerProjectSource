@@ -57,6 +57,7 @@ public class AjaxController {
 	@PostMapping("/payment")
 	public int payment(@RequestBody HashMap<String, String> map) {
 		if(os.payment(map) == 1) {
+			System.out.println("들어감");
 			return 1;
 		}
 		else return 2;

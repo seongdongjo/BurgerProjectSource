@@ -29,7 +29,7 @@
 				<tbody>
 					<tr>
 						<c:if test="${ not empty orderList }">
-							<td>${ orderList.orderDate }-${ orderList.order_Seq }</td>
+							<td>${ orderList.orderDate }-${ orderList.orderSeq }</td>
 							<td><div id="timer" ></div></td>
 <%-- 							<td>${ timer }</td> --%>
 							<td>🗒 ${orderList.orderstatus=='y'? '✔️'   :  ''}  </td>
@@ -104,7 +104,7 @@
 	      document.getElementById("timer").innerHTML = "배달 완료";
 			orderComplete.innerText +='✔️ '
 	   }
-	}, 1000);
+	}, 1000); 
 	
 	
  

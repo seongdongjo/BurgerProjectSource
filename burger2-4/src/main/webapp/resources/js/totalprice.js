@@ -1,5 +1,5 @@
 function totalfunction1(event) {  //counter에는 가격이들어간다. 2300, -2300 등
-	let priceArr = []
+	//let priceArr = []
 	let total = 0
 	console.log(event.target.nextElementSibling.innerHTML.split(' ')[1])
 	let oneprice = event.target.nextElementSibling
@@ -23,9 +23,9 @@ function totalfunction2() {
 		getprice = parseInt(getprice.replace(/,/g,""))
 		total += getprice
 	})
-	getTotalPriceDom(total)
+	getTotalPriceDom(total) //결제가격찍어주고
 	console.log('총합: ' + total)
-	selectproductcount()
+	selectproductcount() //수량찍어주고
 }
 
 function totalfunction3(total) {  // '-' 를 클릭했을 때 음수가격을 받는다 

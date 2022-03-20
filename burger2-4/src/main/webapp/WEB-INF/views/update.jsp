@@ -23,7 +23,7 @@
 					<tbody>
 						<tr>
 							<th scope="row">아이디 :</th>
-							<td><input type="text" name="userid" value="${member.userid }" required readonly>
+							<td><input type="text" name="userid" value="${member.userid }" required readonly> <!-- member는 LoginController에서 받음 -->
 							</td>
 						</tr>
 						<tr>

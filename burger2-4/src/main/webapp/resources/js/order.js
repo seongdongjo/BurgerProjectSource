@@ -48,12 +48,12 @@ function macImageHandler() {
 					//이미지를 클릭하면
 					arr.onclick=function(event) {
 						let parent_orderArray=parent_order.childNodes
-						if(parent_orderArray.length == 0) imageOrderDom(event)
+						if(parent_orderArray.length == 0) imageOrderDom(event) //상품리스트에 상품이 없으면
 						else { //상품리스트가 하나라도 있으면
 							for(let i = 0; i<parent_orderArray.length; i++) {
 								let price = parent_orderArray[i].childNodes[5].innerText.split(' ')[1]
 								price = parseInt(price.replace(/,/g,"")) //2300
-								
+								//내가 클릭한 메뉴와 담긴목록의 메뉴와 일치할때
 								if(parent_orderArray[i].childNodes[1].innerText == event.target.nextElementSibling.nextElementSibling.innerText){
 									let count = parseInt(parent_orderArray[i].childNodes[1].nextElementSibling.nextElementSibling.innerText)
 									parent_orderArray[i].childNodes[1].nextElementSibling.nextElementSibling.innerText= count +1
@@ -62,7 +62,7 @@ function macImageHandler() {
 									break;
 								}
 								else {
-									if(i==(parent_orderArray.length-1)) {
+									if(i==(parent_orderArray.length-1)) { //마지막까지 비교한뒤에 목록에 담는다. 만약에 첫번째에비교하고 같은게 없으면 else로 오는데 이때 목록을 추가하면 안된다. 첫번째이후에 같은 목록이 있을 수 있으니까
 										imageOrderDom(event)
 										break
 									}
@@ -82,7 +82,7 @@ function getMacDom(json) {
 	showContainTag1 = `<div class="show-contain">`
 	showContainTag2= `</div>`
 	json.forEach(dto =>{
-		if(i==0 || i%8==0) tag += showContainTag1
+		if(i==0 || i%8==0) tag += showContainTag1  
 		tag +=	 `<div class="menu-border">`
 		tag +=		`<img class="imageOrderBtn" src="${dto.mcmorning_img}">`
 		tag +=		`<div style="color: #44900c; font-size: 14px;">￦ ${dto.mcmorning_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>`
@@ -645,7 +645,7 @@ function getmcafeDom(json) {
 
 function render(target, dom) {
 	target.innerHTML = dom
-	const showContainCount = document.getElementsByClassName('show-contain').length
+	const showContainCount = document.getElementsByClassName('show-contain').length //컨테인 개수
 	showFrame.style.width=showContainCount*1200+'px'
 	envShowContainCount = showContainCount //전역변수화
 	

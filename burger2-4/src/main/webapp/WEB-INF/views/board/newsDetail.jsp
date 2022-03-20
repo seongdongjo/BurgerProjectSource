@@ -22,7 +22,7 @@
 		<div class="detail-num">
 <%-- 			<fmt:formatDate var="formatRegDate" value="${ dto.regDate }" pattern="yyyy-MM-dd"/> --%>
 			<div class="detail-regDate">${ dto.reqDate }</div>
-			<div class="detail-cnt">&nbsp;<span>조회수 :</span> &nbsp;${dto.cnt }</div>
+			<div class="detail-cnt">&nbsp;<span> | </span> &nbsp;${dto.cnt }</div>
 		</div>
 	</div>
 </div>

@@ -16,7 +16,7 @@ public interface OrderListDAO {
 	
 	@Select("select * from orderlist_table "
 			+ "where "
-			+ "to_char(orderdate, 'yyyymmdd hh24:mi:ss') > to_char(sysdate -5/24/60/60, 'yyyymmdd hh24:mi:ss') "
+			+ "to_char(orderdate, 'yyyymmdd hh24:mi:ss') > to_char(sysdate -5/24/60, 'yyyymmdd hh24:mi:ss') "
 			+ "and userid = #{ userid }")
 	OrderListDTO seletOrderList(String userid);
 

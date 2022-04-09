@@ -17,7 +17,7 @@ function getPrev(table,seq){
 	const url = cpath + '/menuDetail'
 	const opt = {
 		method : 'POST',
-		body : JSON.stringify(ob), //ob객체를 보낸다.
+		body : JSON.stringify(ob), //ob객체를 보낸다. /menuDetaile로
 		headers : {
 			'Content-Type': 'application/json; charset=utf-8'
 		}
@@ -27,7 +27,7 @@ function getPrev(table,seq){
 	.then(json => {
 		getDetailList(table,json)
 	})
-	if(btnSeq > 1) {
+	if(btnSeq > 1) { //이전버튼을 눌렀기때문에 seq는 1감소
 		btnSeq--  //detail.jsp에 있는 변수
 	}
 }
@@ -161,7 +161,7 @@ function nutrition(json){
 	})
 }
 function nutritionSplit(json){
-	json.forEach(dto =>{
+	json.forEach(dto =>{ 
 		//console.log(dto) 바닐라쉐이크에대한 allergy, img, kcal 등등
 		for(key in dto){
 			let nutrition = ''
@@ -172,30 +172,37 @@ function nutritionSplit(json){
 			nutrition += (wg.length == 1) ? //length비교하는이유는 // 로 자르면 길이가 최소1이상이니까 2이상이면 두번째 weight_g를 출력
   					 '<td>'+((wg[0] != 0) ? wg[0]+'g' : '-')+'</td>' :
   						 '<td>'+((wg[1] != 0) ? wg[1]+'g' : '-')+'</td>'
+  						 
   			let wml = dto['WEIGHT_ML'].split(' // ')
   			nutrition += (wml.length == 1) ? 
 						 '<td>'+((wml[0] != 0) ? wml[0]+'ml' : '-')+'</td>' :
 						 '<td>'+((wml[1] != 0) ? wml[1]+'ml' : '-')+'</td>'
+						 
 			let krr = dto['KCAL'].split(' // ')
 			nutrition += (krr.length == 1) ? 
 					 	 '<td>'+((krr[0] != 0) ? krr[0]+'kcal' : '-')+'</td>' :
 					 	 '<td>'+((krr[1] != 0) ? krr[1]+'kcal' : '-')+'</td>'
+					 	 
 			let srr = dto['SUGAR'].split(' // ')
 			nutrition += (srr.length == 1) ? 
 					 	 '<td>'+((srr[0] != 0) ? srr[0]+'g' : '-')+'</td>' :
 					 	 '<td>'+((srr[1] != 0) ? srr[1]+'g' : '-')+'</td>'
+					 	 
 			let prr = dto['PROTEIN'].split(' // ')
 			nutrition += (prr.length == 1) ? 
 					 	 '<td>'+((prr[0] != 0) ? prr[0]+'g' : '-')+'</td>' :
 					 	 '<td>'+((prr[1] != 0) ? prr[1]+'g' : '-')+'</td>'
+					 	 
 			let frr = dto['FAT'].split(' // ')
 			nutrition += (frr.length == 1) ? 
 						 '<td>'+((frr[0] != 0) ? frr[0]+'g' : '-')+'</td>' :
 						 '<td>'+((frr[1] != 0) ? frr[1]+'g' : '-')+'</td>'
+						 
 			let nrr = dto['NATRIUM'].split(' // ')
 			nutrition += (nrr.length == 1) ? 
 					 	 '<td>'+((nrr[0] != 0) ? nrr[0]+'mg' : '-')+'</td>' :
 					 	 '<td>'+((nrr[1] != 0) ? nrr[1]+'mg' : '-')+'</td>'
+					 	 
 			let crr = dto['CAFFEINE'].split(' // ')
 			nutrition += (crr.length == 1) ? 
 						 '<td>'+((crr[0] != 0) ? crr[0]+'mg' : '-')+'</td>' :

@@ -32,7 +32,7 @@ public class Paging {
 	}
 	
 	public boolean next(int pageCount, int end) { //버튼
-		next = (pageCount / 5 != end / 5);
+		next = (pageCount / 5 != end / 5); //pageCount가 end보다 작을 수는 없다.
 		return next;
 	}
 }

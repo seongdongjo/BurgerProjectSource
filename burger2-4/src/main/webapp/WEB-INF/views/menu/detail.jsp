@@ -7,7 +7,7 @@
 	<div class="menu-top">
 		<c:choose>
 			<c:when test="${table eq 'mcmorning'}">
-				<c:forEach var="top" items="${tList}">
+				<c:forEach var="top" items="${tList}"> <!-- tList는 <List<HashMap>의 형태다 -->
 					<div class="menu-top-background" style="background-image: url(${top.MCMORNING_TABLE_BACKGROUND});">
 						<h1 class="menu-title">맥모닝</h1>
 						<p class="menu-text">${top.MCMORNING_TABLE_DESCRIPTION}</p>

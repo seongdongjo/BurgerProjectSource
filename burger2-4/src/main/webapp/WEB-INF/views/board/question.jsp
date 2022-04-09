@@ -18,7 +18,7 @@
         
         <div class="QnA-top">
         	<div class="QnA-top-left">
-	        	<div><a href="${ cpath }/board/qnaWrite"><button class="QnA-write">Q&A 작성하기</button></a></div>
+	        	<div><a href="${ cpath }/board/qnaWrite"><button class="QnA-write">Q&A 작성하기</button></a></div> <!-- 로그인 안되있으면 인터셉터로 이동 -->
 	        	<div>
 	        	<c:if test="${ not empty login }">
  	        		<form>

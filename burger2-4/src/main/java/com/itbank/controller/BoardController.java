@@ -53,7 +53,7 @@ public class BoardController {
 		map.put("offset", offset); //offset은 int
 		
 		List<HashMap<String, Object>> list = ns.searchList(map); //search, offset을 가지고간다.(search는 null가능)
-		List<HashMap<String, Object>> topList = ns.topList();
+		List<HashMap<String, Object>> topList = ns.topList(); //고정 공지사항 
 		
 		int total = ns.searchTotal(search); //총 ?개의 게시글이 있습니다.
 		
@@ -149,9 +149,9 @@ public class BoardController {
 		map.put("seq", seq);
 		map.put("cnt", dto.getCnt());
 		
-		int newCnt = bs.cntUpdate(map);
+		int newCnt = bs.cntUpdate(map); //db에 조회수 1 증가
 		
-		NoticeDTO dto1 = bs.getNews(seq); //조회수 증가한 후 다시 dto가져오기
+		NoticeDTO dto1 = bs.getNews(seq); //조회수 증가한 걸 다시 dto가져오기
 		
 		mav.addObject("dto", dto1);
 		
@@ -191,7 +191,7 @@ public class BoardController {
 		return mav;
 	}
 	
-	@GetMapping("/question") //문의사항 클릭 시 
+	@GetMapping("/question") //문의사항 클릭 시 , 페이징
 	public ModelAndView question(int page, @RequestParam(required = false) String result, HttpSession session, Integer mycheck) { //int에서 null체크할려면 Intger로 바꿔야됨
 		int total=0;
 		ModelAndView mav = new ModelAndView();
@@ -207,7 +207,7 @@ public class BoardController {
 			resultmap.put("result", result);
 			total = bs.qnaCount(resultmap);
 		}
-		else {
+		else { //나의 Q&A접근시 (mycheck = 1로 줬기때문에)
 			resultmap.put("userid", dto.getUserid());
 			resultmap.put("result", result);
 			total = bs.qnaCount(resultmap); //result가 null이든 아니든 iftest로 구분(xml에서)

@@ -151,7 +151,7 @@ public String pwChkMail(String email, String authNumber, String account) {
 			// 받는 사람의 주소
 			
 			// internetAddress : 자바 소켓
-			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email)); //입력받은 이메일
 			
 			mimeMessage.setSubject(subject);	// 제목
 			
@@ -223,7 +223,7 @@ public String pwChkMail(String email, String authNumber, String account) {
 			// 받는 사람의 주소
 			
 			// internetAddress : 자바 소켓
-			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email)); 
 			
 			mimeMessage.setSubject(subject);	// 제목
 			

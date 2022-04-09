@@ -27,7 +27,7 @@ function getMenuList(table,json){
 function getMcmorning(json){
 	let menu = ``
 	let top = ``
-	json.tlist.forEach(dto =>{
+	json.tlist.forEach(dto =>{ //json에는 tlist와 mlist가 있다.
 		top += `<div class="menu-top-background" style="background-image: url(`+dto.MCMORNING_TABLE_BACKGROUND+`);">`
 		top += 		`<h1 class="menu-title">맥모닝</h1>`
 		top += 		`<p class="menu-text">`+dto.MCMORNING_TABLE_DESCRIPTION+`</p>`
@@ -245,11 +245,11 @@ function detailClick(){
 			let table = target.dataset.table
 			let seq = target.dataset.seq
 			
-			detailForm(table, seq)
+			detailForm(table, seq) //아래로 전달
 		}
 	})
 }
-function detailForm(tableValue, seqValue){
+function detailForm(tableValue, seqValue){ //사진을 클릭하면 폼을 만들어서 컨트롤러로 전달
 	const form = document.createElement('form')
 	form.method = 'POST'
 	form.action = cpath + '/menu/detail'
@@ -270,5 +270,5 @@ function detailForm(tableValue, seqValue){
 	
 	document.body.appendChild(form)
 
-	form.submit()
+	form.submit() //MenuController로
 }

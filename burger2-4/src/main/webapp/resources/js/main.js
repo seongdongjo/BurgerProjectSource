@@ -69,6 +69,7 @@ function getPromDom(json){
 }
 */
 // 버튼을 누르면 이동
+//footer.jsp에 작동
 function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
 	const $this = $(this) //클릭한 div를 받아와서
     let index = $this.index() //클릭한 div의 index를 저장
@@ -77,6 +78,7 @@ function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
     $this.siblings('.active').removeClass('active') //형제노드에서 클래스가 active인것을 가져와서 active를 제거
     
     //이제 슬라이드도 버튼에 맞게 바꿔줘야된다.
+    //$this는 div이다.
     let slider = $this.parent().parent() //main-slide로(section)
     
     let current = slider.find('.slide > div.active') //슬라이드에서 현재 active를 찾고
@@ -89,6 +91,7 @@ function btnSlider(){ //page-btns밑에 div들 클릭 시 발동하는 함수
 
 //slide < > 버튼클릭시
 // 계속 오른쪽 버튼을 클릭하는거랑 동일하게 진행
+//div를 클릭했을 때
 function slider(){ //side-btns밑에 div(left,right)클릭 시 발동하는 함수
 	const $this = $(this)
     let slider = $this.closest('.main-slide') //부모인 .main-slide하나만 찾는다.
@@ -139,6 +142,6 @@ function slider(){ //side-btns밑에 div(left,right)클릭 시 발동하는 함�
 // interval로 움직이는 함수
 function setMoveInterval(){
 	setInterval(function(){
-	    $('.main-slide > .side-btns > div').eq(1).click(); //eq(1)은 찾은 요소의 1번쨰인덱스를 의미. -> 즉, 오른쪽을 클릭해라
+	    $('.main-slide > .side-btns > div').eq(1).click(); //eq(1)은 찾은 요소의 1번쨰인덱스(오른쪽)를 의미. -> 즉, 오른쪽을 클릭해라
 	}, 6000) //6초마다 반복
 }

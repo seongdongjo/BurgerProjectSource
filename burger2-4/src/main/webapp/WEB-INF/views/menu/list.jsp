@@ -78,7 +78,7 @@
 		menuOpen.onclick = function(){ //+,- 클릭시 발동하는 함수
 
 				
-				menuList.style.maxHeight = cnt2  * 600 + 'px'
+				menuList.style.maxHeight = cnt2  * 600 + 'px' //600씩 늘어나게끔
 				
 				console.log(cnt2)
 				if(cnt1 == cnt2){ //상품이 이제 없으면 +를 -로 바꾼다

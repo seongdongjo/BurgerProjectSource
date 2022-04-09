@@ -293,7 +293,7 @@
 					storePaging.innerHTML += pagingDom2
 					storePaging.innerHTML += pagingDom3
 					
-					
+					//ajax로 만든 페이징
 					$('.c-Btn').on('click', function(e) {
 						e.preventDefault()
 						console.log(e.target.dataset.page)

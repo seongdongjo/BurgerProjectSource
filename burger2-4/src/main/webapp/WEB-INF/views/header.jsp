@@ -60,7 +60,7 @@
                     <ul> <!-- 여기에 마우스를 올리면-->
                         <li class="top-menu-li">
                             <a href="${ cpath }/menu/list/burger">Menu</a> <!--그냥 Menu클릭시 burger로 이동 -->
-                            <div class="top-menu-submenu"> <!--display : block -->
+                            <div class="top-menu-submenu"> <!--display : none되있음 -->
                                 <ul class="top-menu-inner">
                                     <li><a href="${ cpath }/menu/list/mcmorning">맥모닝</a></li>
                                     <li><a href="${ cpath }/menu/list/burger">버거</a></li>

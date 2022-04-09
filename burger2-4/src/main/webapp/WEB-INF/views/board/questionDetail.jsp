@@ -21,7 +21,7 @@
 		<div class="detail-header">
 			<div class="detail-title">${que.title }</div>
 			<div class="detail-num">
-				<div class="detail-regDate">${ que.regDate }</div>
+				<div class="detail-regDate">${ que.regDate }</div> <!-- dto에서 regDate가 Date타입이다. -->
 			</div>
 		</div>
 		<hr class="detail-hr">

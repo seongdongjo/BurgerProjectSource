@@ -87,7 +87,7 @@ public class AjaxMenuController {
 	
 	@PostMapping("/menuDetail")
 	public List<HashMap<String, Object>> menuDetail(@RequestBody HashMap<String, Object> map){ //map에는 sequence,table이 있다.
-		
+		//List로 받은이유는 js쪽에서 forEach를 돌리기 위한것이다.
 		List<HashMap<String, Object>> list = ms.menuDetail(map);
 		
 		System.out.println(list);

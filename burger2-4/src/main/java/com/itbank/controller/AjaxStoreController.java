@@ -31,12 +31,12 @@ public class AjaxStoreController {
 	public HashMap<String, Object> storeCate(@RequestBody HashMap<String, Object> map1) { //넘겨받은 ob객체
 		System.out.println(map1);
 		
-		Object cate = map1.get("cate");
+		Object cate = map1.get("cate"); //key는 String이지만 value는 object이기때문에
 		String cate1 = (String) cate; //내가클릭한 24시간, 주차가능, 맥드라이브 등등
 
 		Object page1 = map1.get("page");
 
-		List<HashMap<String, Object>> list = ss.selectCate(map1);
+		List<HashMap<String, Object>> list = ss.selectCate(map1); //cate, offset으로 store데이터 추출
 		System.out.println(list);
 		int page = (int)page1;
 
@@ -50,7 +50,7 @@ public class AjaxStoreController {
 
 		int begin = paging.begin(section); //begin = (section * 5) + 1;  section이 늘어남에따라 begin은 5씩늘어난다
 
-		int end = paging.end(pageCount); 
+		int end = paging.end(pageCount); //end = pageCount < begin + 4 ? pageCount : begin+4; //begin이 1이면 end는 5, begin이 6이면 end 10
 
 		boolean prev = paging.prev(section);
 
